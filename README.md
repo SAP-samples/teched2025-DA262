@@ -1,21 +1,30 @@
-# Session ID - Session Title
+# DA262 - Enabling clean core development with SAP HANA Cloud and SAP Build Code
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2025 session called Session ID - Session Title.  
+This repository contains the material for the SAP TechEd 2025 session called DA262 - Enabling clean core development with SAP HANA Cloud and SAP Build Code.
 
 ## Overview
 
-This session introduces attendees to...Enabling clean core development with SAP HANA Cloud and SAP Build Code.
+This repository provides a guided series of hands-on exercises designed to help you build intelligent data-driven applications using SAP HANA Cloud, SAP Build Code, and Joule - SAP’s generative AI copilot. You'll learn how to develop clean, cloud-native applications on SAP BTP that integrate seamlessly with SAP S/4HANA, while adhering to clean core principles.
 
-## Requirements
-
-The requirements to follow the exercises in this repository are...
+Each exercise walks you through the full development lifecycle — from environment setup to application deployment — using low-code and pro-code tools powered by AI.
 
 ## Exercises
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+Navigate to the links below to get a detailed description to perform each exercise.
 
+- [Walkthrough of the Exercise](exercises/ex0/)
+- [Exercise 1 - Create a Full-Stack Project in SAP Build Code](exercises/ex1/)
+- [Exercise 2 - Create Data Model & Service with Joule](exercises/ex2/)
+- [Exercise 3 - Add Application Logic](exercises/ex3/)
+- [Exercise 4 - Add Business Partner Service & Connect your application to the Sandbox](exercises/ex4/)
+- [Exercise 5 - Add UI to your application ](exercises/ex5/)
+- [Exercise 6 - Bind your application to an HDI Container & view the data in SAP HANA Database Explorer ](exercises/ex6/)
+- [Exercise 7 - Run your application  ](exercises/ex7/)
+- [Exercise 8 - Inteligent SQL Assistant Console in Business Application Studios (BAS)  ](exercises/ex8/)
+
+reference --
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - First Exercise Description](exercises/ex1/)
     - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
