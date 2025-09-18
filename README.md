@@ -4,39 +4,29 @@
 
 This repository contains the material for the SAP TechEd 2025 session called DA262 - Enabling clean core development with SAP HANA Cloud and SAP Build Code.
 
-## Overview
+## Overview 📚
 
 This repository provides a guided series of hands-on exercises designed to help you build intelligent data-driven applications using SAP HANA Cloud, SAP Build Code, and Joule - SAP’s generative AI copilot. You'll learn how to develop clean, cloud-native applications on SAP BTP that integrate seamlessly with SAP S/4HANA, while adhering to clean core principles.
 
-Each exercise walks you through the full development lifecycle — from environment setup to application deployment — using low-code and pro-code tools powered by AI.
+Each exercise walks you through the full development lifecycle from environment setup to application deployment to using low-code and pro-code tools powered by AI.
 
-## Exercises
+## Exercises  💻 
 
 Navigate to the links below to get a detailed description to perform each exercise.
 
 - [Walkthrough of the Exercise](exercises/ex0/)
+- [Dev Space Configuration](exercises/dev-space-config/)
 - [Exercise 1 - Create a Full-Stack Project in SAP Build Code](exercises/ex1/)
+    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
+
 - [Exercise 2 - Create Data Model & Service with Joule](exercises/ex2/)
 - [Exercise 3 - Add Application Logic](exercises/ex3/)
 - [Exercise 4 - Add Business Partner Service & Connect your application to the Sandbox](exercises/ex4/)
 - [Exercise 5 - Add UI to your application ](exercises/ex5/)
 - [Exercise 6 - Bind your application to an HDI Container & view the data in SAP HANA Database Explorer ](exercises/ex6/)
 - [Exercise 7 - Run your application  ](exercises/ex7/)
-- [Exercise 8 - Inteligent SQL Assistant Console in Business Application Studios (BAS)  ](exercises/ex8/)
 
-reference --
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
-
-  
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
+🚀 Start [here](exercises/ex0/)
 
 **IMPORTANT**
 
