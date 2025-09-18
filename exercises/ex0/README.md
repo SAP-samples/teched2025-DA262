@@ -1,26 +1,30 @@
-# Level 1 Heading
+# Walkthrough of the Exercise 💻
 
-In this exercise, you will...
+In this hands-on session, you will build a Risk Management application on SAP BTP that consumes Business Partner data from an S/4HANA system, adhering to SAP Clean Core principles. You’ll use SAP Build Code, SAP HANA Cloud, and SAP CAP (Cloud Application Programming) model to demonstrate how to extend core systems without modifications.
 
-## Level 2 Heading
+This session is intended for developers and architects interested in extensibility, side-by-side extensions, and modern cloud-native development on SAP BTP.
 
-After completing these steps you will have....
+## Objectives ✅
 
-1.	Click here.
-<br>![](/exercises/ex0/images/00_00_0010.png)
+After completing these steps you will have:
+1. Understand how to apply SAP Clean Core principles.
 
-2.	Insert this code.
-``` abap
- DATA(params) = request->get_form_fields(  ).
- READ TABLE params REFERENCE INTO DATA(param) WITH KEY name = 'cmd'.
-  IF sy-subrc <> 0.
-    response->set_status( i_code = 400
-                     i_reason = 'Bad request').
-    RETURN.
-  ENDIF.
-```
+2. Create a full-stack application using SAP Build Code and CAP.
+
+3. Connect to S/4HANA Business Partner data via SAP Destination & Cloud Connector.
+
+4. Store and enrich data in SAP HANA Cloud.
+
+5. Build a Fiori Elements UI.
+
+6. Deploy the solution on SAP BTP.
+
+## Architecture Diagram 
+
+## Access to workspace 
 
 ## Summary
 
-Now that you have ... 
-Continue to - [Exercise 1 - Exercise 1 Description](../ex1/README.md)
+This session demonstrated how you can extend SAP S/4HANA cleanly using side-by-side extensibility patterns. You built a cloud-native application with no modifications to the core, enabling agility and maintainability.
+
+Continue to - [Exercise 1 - Exercise 1 Setup ](../ex1/README.md)
