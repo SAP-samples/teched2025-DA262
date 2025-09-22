@@ -3,16 +3,16 @@
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
     - Launch the [SAP Build Lobby](https://sap-build-us10-trial.us10.build.cloud.sap/lobby)🚀
 
-<br>![](/exercises/dev-space-config/images/launch-sap-build.png)
+<br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)
 
 
 2. In the SAP Build Lobby, go to the __Product switch icon__ (1) (top right corner) and __click__ on __"Dev Space Manager"__ (2) to open the SAP Build Code development space management UI.
 
-<br>![](/exercises/dev-space-config/images/dev-space-manager.png)
+<br>![](/exercises/dev-space-config/images/2-dev-space-manager.png)
 
 3. Choose  __"Create Dev Space "__
 
-<br>![](/exercises/dev-space-config/images/create-new-dev-space.png)
+<br>![](/exercises/dev-space-config/images/3-create-new-dev-space.png)
 
 4. Specify the dev space name and select extensions:
 - _Name_ the dev space: __TechEdDA262_U<##>__
@@ -26,9 +26,9 @@
   - __SAP HANA Calculation View Editor__
 - _Apply by clicking_ __"Create Dev Space"__
 
-<br>![](/exercises/dev-space-config/images/create-dev-space.png)
+<br>![](/exercises/dev-space-config/images/4-create-dev-space.png)
 
 5. You will see that the newly created dev space is __starting__, once it is ready, that is indicated as __RUNNING__.  
 Now you can go back to the SAP Build Code Lobby and create a Full-Stack Application project in the next excercise.
 
-<br>![](/exercises/dev-space-config/images/space-starting.png)
+<br>![](/exercises/dev-space-config/images/5-space-starting.png)
