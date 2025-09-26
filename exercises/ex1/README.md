@@ -49,18 +49,18 @@ You can now open in SAP Business Application Studio, the SAP Build Code developm
 
 Open the newly created project, right click on the activity bar and check if the below extensions are enabled.
 
-br>![](/exercises/ex1/images/10_activity_bar_list.png)
+<br>![](/exercises/ex1/images/8-activity-bar-list.png)
 
 Additionally, to display the menu bar on the top. Click on the settings icon.
 
-br>![](/exercises/ex1/images/11_settings.png)
+<br>![](/exercises/ex1/images/9-settings.png)
 
 Search for Menu Bar Visibility and click on the drop down and choose Classic
 
-br>![](/exercises/ex1/images/12_menu_bar_visibility.png)
+<br>![](/exercises/ex1/images/10-menu-bar-visibility.png)
 
 Now your menu bar will look as shown below:
 
-br>![](/exercises/ex1/images/13_menu_bar.png)
+<br>![](/exercises/ex1/images/11-menu-bar.png)
 
 Continue to - [Exercise 2 - Create Data Model & Service with Joule](../ex2/README.md)
