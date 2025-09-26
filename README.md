@@ -1,6 +1,6 @@
 # DA262 - Enabling clean core development with SAP HANA Cloud and SAP Build Code
 
-## Description
+## Description 📜
 
 This repository contains the material for the SAP TechEd 2025 session called DA262 - Enabling clean core development with SAP HANA Cloud and SAP Build Code.
 
@@ -14,19 +14,18 @@ Each exercise walks you through the full development lifecycle from environment 
 
 Navigate to the links below to get a detailed description to perform each exercise.
 
-- [Walkthrough of the Exercise](exercises/ex0/)
+- [Walkthrough of the Exercise](exercises/setup/)
 - [Dev Space Configuration](exercises/dev-space-config/)
 - [Exercise 1 - Create a Full-Stack Project in SAP Build Code](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-
 - [Exercise 2 - Create Data Model & Service with Joule](exercises/ex2/)
 - [Exercise 3 - Add Application Logic](exercises/ex3/)
 - [Exercise 4 - Add Business Partner Service & Connect your application to the Sandbox](exercises/ex4/)
 - [Exercise 5 - Add UI to your application ](exercises/ex5/)
 - [Exercise 6 - Bind your application to an HDI Container & view the data in SAP HANA Database Explorer ](exercises/ex6/)
+    - [Exercise 6.1 - Add SAP HANA Cloud Native Artifacts to a CAP Application](exercises/ex6/ex6.1/)
 - [Exercise 7 - Run your application  ](exercises/ex7/)
 
-🚀 Start [here](exercises/ex0/)
+🚀 Start [here](exercises/setup/)
 
 **IMPORTANT**
 

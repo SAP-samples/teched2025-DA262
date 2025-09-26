@@ -1,42 +1,46 @@
-# Exercise 2 - Exercise 2 Description
+# Getting Started - Setup of your workspace
 
-In this exercise, we will create...
+In this exercise, Please follow the instructions below to log into your SAP Build Code workspace using the credentials provided.
 
-## Exercise 2.1 Sub Exercise 1 Description
+## Access your workspace
 
-After completing these steps you will have created...
+Click the unique link shared with you
 
-1. Click here.
-<br>![](/exercises/ex2/images/02_01_0010.png)
+1. Workspace URL: 
 
-2.	Insert this line of code.
-```abap
-response->set_text( |Hello ABAP World! | ). 
-```
+This link will then open a login page.
+
+<br>![](/exercises/setup/images/sign_in.png)
 
 
+## Login 
 
-## Exercise 2.2 Sub Exercise 2 Description
+Use the credentials provided to log in.
 
-After completing these steps you will have...
+Username: <your_username>
 
-1.	Enter this code.
-```abap
-DATA(lt_params) = request->get_form_fields(  ).
-READ TABLE lt_params REFERENCE INTO DATA(lr_params) WITH KEY name = 'cmd'.
-  IF sy-subrc = 0.
-    response->set_status( i_code = 200
-                     i_reason = 'Everything is fine').
-    RETURN.
-  ENDIF.
+Password: <your_password>
 
-```
+<br>![](/exercises/setup/images/sign_in.png)
 
-2.	Click here.
-<br>![](/exercises/ex2/images/02_02_0010.png)
+## Explore the contents of the workspace
 
-## Summary
 
-You've now ...
+
+
+
+## Summary -- needs revision 
+
+In this section, you successfully:
+
+  1. Accessed your dedicated workspace using the provided URL, username, and password
+
+  2. Logged into the SAP Build Code / Business Application Studio (BAS) environment
+
+  3. Launched your preconfigured dev space for the Risk Management App
+
+  4. Verified that the project structure is present and ready for development
+
+You are now set up and ready to begin the hands-on development exercise.
 
 Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)

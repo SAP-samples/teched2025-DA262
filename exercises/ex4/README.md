@@ -65,7 +65,7 @@ In the following steps, we define the data model and service model relationship 
 
 
 
-## Exercise 4.2 Connect your application to the Business Partner API Sandbox Environment
+## Exercise 4.2 Connect your application to the Business Partner API Destination
 
 12. As a first step, a custom Node.Js service-handler is required to be able to read from external api.
 - In the project folder, under ./srv create a new (service-handler) file (*.js-file), name it bp_api.js. 
@@ -80,47 +80,6 @@ module.exports = cds.service.impl(async function() {
     });
 });
 ```
-13. Now, go back to the SAP Business Accerlator Hub and copy the API Key for the selected Business Partner (A2X) and add it to API_BUSINESS_PARTNER configuration in the package.json file
-
-![alt text](/exercises/ex4/images/image-20.png)  
-
-```json
-      "API_BUSINESS_PARTNER": {
-          "kind": "odata-v2",
-          "model": "srv/external/API_BUSINESS_PARTNER",
-          "credentials": {
-            "url": "<URL>",
-             "headers": {
-                "APIKey": <API_KEY>
-            }
-          }
-        },
-
-```
-
-14. Moreover, copy the SANDBOX_URL from the SAP Business Accerlator Hub and apply it also to the package.json-file
-
-![alt text](/exercises/ex4/images/image-11.png)
-
-
-```json
-      "API_BUSINESS_PARTNER": {
-          "kind": "odata-v2",
-          "model": "srv/external/API_BUSINESS_PARTNER",
-          "credentials": {
-            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
-             "headers": {
-                "APIKey": <API_KEY>
-            }
-          }
-        },
-
-```
-15. Save and close the files.
-
-You've now created a custom handler for your service. This time it called on for the READ event.
-
-The handler is invoked when your BusinessPartner service is called for a READ, so whenever there’s a request for business partner data, this handler is called. It ensures the request for the business partner is directed to the external business partner service. 
 
 ## Summary
 
