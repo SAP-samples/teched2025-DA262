@@ -12,7 +12,8 @@ Add SAP HANA Cloud native artifacts, such as calculation views and stored proced
 
 <br>![](/exercises/ex6/ex6.1/images/2_viewcreate.png) 
 
-2. Create a calculation view called __V_RISKS__ of Data Category DIMENSION and Dimension Type of STANDARD. Press Create.
+2. Create a calculation view called __RISK_MANAGEMENT_U00_V_RISKS__ of Data Category DIMENSION and Dimension Type of STANDARD. Press Create.
+![alt text](image.png)
 
 <br>![](/exercises/ex6/ex6.1/images/3_cvdetails.png) 
 
@@ -21,7 +22,6 @@ Add SAP HANA Cloud native artifacts, such as calculation views and stored proced
 <br>![](/exercises/ex6/ex6.1/images/4_projstr.png) 
 
 4. Click on the __V_RISKS.hdbcalculationview__ to load the graphical calculation view editor.
-
 <br>![](/exercises/ex6/ex6.1/images/5_viewcv.png) 
 
 5. Now lets model the join relationship. Drop a join node into the modeling space.Click on the join and drop it at the end of the projection.
@@ -132,4 +132,6 @@ cds build --production
 <br>![](/exercises/ex6/ex6.1/images/17_deploy.png) 
 
 23. You can test your view via the service layer by adding /odata/v4/catalog/V_RISKS to the path.
+
+<br>![](/exercises/ex6/ex6.1/images/26_viewodata.png) 
 
