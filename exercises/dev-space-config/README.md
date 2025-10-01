@@ -1,6 +1,7 @@
 # Launch SAP Build 
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
+
     - Launch the [SAP Build Lobby](https://sap-build-us10-trial.us10.build.cloud.sap/lobby)🚀
 
 <br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)

@@ -50,7 +50,9 @@ Create a risk management app with risks and mitigations. Each risk may refer to 
 <br>__9.__ Go back to the __"Generate AI-Powered Development"__-view
 - Go to __""Generate Sample Data"__ > __"Open Joule"__. 
 - Select the entity context by _clicking_ __"#db/schema.cds"__ and then enter the below prompt text. By preceding the prompt with __#-some-object-context__ you can more specifically instruct the context of the Joule generation task.
+
 ![alt text](/exercises/ex2/images/10_openjoule_datagen.png)
+
 
 ```
  Generate sample data
@@ -58,13 +60,17 @@ Create a risk management app with risks and mitigations. Each risk may refer to 
 - Choose or type __#db/schema.cds__ and then enter the above prompt
 ![alt text](/exercises/ex2/images/11_select_variable.png)
 
+
 <br>__10.__  __Accept__ the generated sample data, and you can see 2 csv files in the project test folder.
+
 ![alt text](/exercises/ex2/images/12_accept_sampledata.png)
-<!--[alt text](/exercises/ex2/images/{FE7255FC-AF99-4224-A56A-47DA10941159}.png)-->
+
 ![alt text](/exercises/ex2/images/13_testdata_projecttree.png)  
+
 
 <br>__11.__ Go back to the __"Open Data Editor"__ in the Joule and to review the generated sample data. 
 Note, sample data is used to populate entities with predefined data sets for development and testing. It allows developers to quickly verify application functionality, simulate realistic scenarios, and validate service behavior. Sample data generated to the /test/data-project folder, by default will not be copied to the SAP HANA runtime.
+
 
 ![alt text](/exercises/ex2/images/14_open_editor-sampledata.png)  
 ![alt text](/exercises/ex2/images/15_view_sampledata.png)
