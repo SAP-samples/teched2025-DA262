@@ -23,6 +23,8 @@ Navigate to the links below to get a detailed description to perform each exerci
 - [Exercise 5 - Add UI to your application ](exercises/ex5/)
 - [Exercise 6 - Bind your application to an HDI Container & view the data in SAP HANA Database Explorer ](exercises/ex6/)
     - [Exercise 6.1 - Add SAP HANA Cloud Native Artifacts to a CAP Application](exercises/ex6/ex6.1/)
+    - [Exercise 6.2 - Building and Integrating a HANA Stored Procedure into a CAP Service ](exercises/ex6/ex6.2/)
+    
 - [Exercise 7 - Run your application  ](exercises/ex7/)
 
 🚀 Start [here](exercises/setup/)
