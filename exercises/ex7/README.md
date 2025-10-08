@@ -1,4 +1,4 @@
-# Exercise 7 - Run your multi-target application for testing
+# Exercise 7 - Run your application for testing
 
 In this exercise, we will configure the __run configuration__ and set the database as SAP HANA Cloud, in order to test to full multi-runtime target application stack
 - Fiori UI
@@ -45,9 +45,17 @@ In this exercise, we will configure the __run configuration__ and set the databa
 <br>__6.__ you can edit the entry and assign a business partner id into a certain risk.
 <br>![](/exercises/ex7/images/8_addbpid.png)
 
+<br>__7.__ You can now also explore the data that was generated from Synoynm that was accessing the historical logs located in the data lake files by clicking on service data details. 
+
+<br>![](/exercises/ex7/images/9_vtdata.png)
+
+<br>![](/exercises/ex7/images/10_results.png)
+
+
+
 ## Summary
 
-You now have successfully built a full stack application with SAP HANA Cloud as database and Cloud Application Programming Model ( CAP ) with Fiori representation.
+You now have successfully built a full stack application with SAP HANA Cloud as database and Cloud Application Programming Model ( CAP ) with Fiori representation adhering to clean core principles.
 
 
 
