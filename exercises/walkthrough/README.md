@@ -7,24 +7,37 @@ This session is intended for developers and architects interested in extensibili
 ## Objectives ✅
 
 After completing these steps you will have:
-1. Understand how to apply SAP Clean Core principles.
 
-2. Create a full-stack application using SAP Build Code and CAP.
+- Apply SAP Clean Core principles for side-by-side extensibility.
 
-3. Connect to S/4HANA Business Partner data via SAP Destination & Cloud Connector.
+- Create a full-stack CAP application using SAP Build Code.
 
-4. Store and enrich data in SAP HANA Cloud.
+- Model data and generate services with Joule.
 
-5. Build a Fiori Elements UI.
+- Implement custom business logic in your CAP service.
 
-6. Deploy the solution on SAP BTP.
+- Connect your application to S/4HANA Business Partner via SAP Business Accerlator Hub.
 
-## Architecture Diagram 
+- Build a Fiori Elements UI for your application.
 
-## Access to workspace 
+- Bind your app to an HDI Container and explore data in SAP HANA Database Explorer.
 
-## Summary
+- Add SAP HANA Cloud native artifacts to your CAP project.
 
-This session demonstrated how you can extend SAP S/4HANA cleanly using side-by-side extensibility patterns. You built a cloud-native application with no modifications to the core, enabling agility and maintainability.
+- Create and integrate a HANA stored procedure in a CAP service.
 
-Continue to - [Exercise 1 - Exercise 1 Setup ](../ex1/README.md)
+- Access historical audit data from SAP HANA Cloud Data Lake.
+
+- Deploy and run your clean core application on SAP BTP.
+
+## Architecture Diagram 🎨
+
+<br>![](/exercises/walkthrough/images/DA262_Architecture_diagram.png)
+
+
+## Access to workspace 🚀
+
+👉 Click [here]((https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login))
+ to start setting up your SAP Build Code workspace and begin the hands-on exercises.
+
+Continue to - [ Getting Started - Setup of your workspace ](../setup/README.md)

@@ -14,7 +14,7 @@ Each exercise walks you through the full development lifecycle from environment 
 
 Navigate to the links below to get a detailed description to perform each exercise.
 
-- [Walkthrough of the Exercise](exercises/setup/)
+- [Walkthrough of the Exercise](exercises/walkthrough/)
 - [Dev Space Configuration](exercises/dev-space-config/)
 - [Exercise 1 - Create a Full-Stack Project in SAP Build Code](exercises/ex1/)
 - [Exercise 2 - Create Data Model & Service with Joule](exercises/ex2/)
@@ -28,7 +28,7 @@ Navigate to the links below to get a detailed description to perform each exerci
     
 - [Exercise 7 - Run your application  ](exercises/ex7/)
 
-🚀 Start [here](exercises/setup/)
+🚀 Start [here](exercises/walkthrough/)
 
 **IMPORTANT**
 
