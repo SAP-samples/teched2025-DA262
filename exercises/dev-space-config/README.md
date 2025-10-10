@@ -1,4 +1,4 @@
-# Launch SAP Build 
+# Dev Space Configurations
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
 
@@ -33,3 +33,5 @@
 Now you can go back to the SAP Build Code Lobby and create a Full-Stack Application project in the next excercise.
 
 <br>![](/exercises/dev-space-config/images/5-space-starting.png)
+
+Continue to - [Exercise 1 - Create a Full-Stack Project in SAP Build Code](../ex1/README.md)

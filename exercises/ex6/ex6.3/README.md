@@ -1,4 +1,4 @@
-# Exercise 6.1 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake 💾
+# Exercise 6.3 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake 💾
 
 Data tiering in SAP HANA Cloud gives you a cost-effective storage solution, which allows you to assigning data to different storage and processing tiers so that you can fulfill your data management strategies.
 
@@ -8,17 +8,22 @@ Your task is to integrate these historical logs into your CAP application withou
 
 ## Pre-setup ( done by SAP )
 
-1. We have setup Data Lake files & stored historical data in it. 
+1. The Data Lake has been configured, and historical data files have been uploaded. 
 
 <br>![](/exercises/ex6/ex6.3/images/1_dlfiles.png) 
 
-2. We have created a database user __DL_USER__, role __HC_DL_FILES_ROLE__, granted necessary priveleges to the role in order to perform the necessary actions in this exercise.
+2. A database user named __AC230193U00__ and a role __HC_DL_FILES_ROLE__ have been created.
+The necessary privileges have been granted to this role to enable the required operations for this exercise.
 
-3. We then established virtual table access to the files in the data lake.
+3. Virtual table access to the Data Lake files has been established, enabling seamless querying of the stored data.
 
 <br>![](/exercises/ex6/ex6.3/images/2_vt.png) 
 
-4. We have created the User Provided Service Instance called __DL_USER__.
+4. A User-Provided Service Instance named __UPS_DA262__ has been created.
+
+>💡 __Insight Corner__: The User-Provided Service (UPS) holds the schema details that define how virtual tables connect to the Data Lake files.
+It acts as a bridge, allowing users to easily access and query external data stored in the Data Lake directly from the database environment.
+
 
 ## Add Existing User Provided Service Instance into your Project
 
@@ -26,7 +31,7 @@ Your task is to integrate these historical logs into your CAP application withou
 
 <br>![](/exercises/ex6/ex6.3/images/3_addups.png) 
 
-2. Click on the drop down for 'Select connection type' and choose 'Existing user-provided service instance' & select __DL_USER__.
+2. Click on the drop down for 'Select connection type' and choose 'Existing user-provided service instance' & select __UPS_DA262__.
 
 <br>![](/exercises/ex6/ex6.3/images/4_selectups.png) 
 
@@ -34,11 +39,11 @@ Your task is to integrate these historical logs into your CAP application withou
 
 <br>![](/exercises/ex6/ex6.3/images/5_hanaprojview.png) 
 
-4. Under the __src__ folder, create a new file called __DL_USER.hdbgrants__
+4. In the __src__ folder, create a new subfolder named __Grants__, and inside it, create a new file called __UPS_DA262.hdbgrants__.
 
 <br>![](/exercises/ex6/ex6.3/images/6_createhdbgrants.png) 
 
-5. Once the file is created, right click on the fole and select 'open with' and choose text editor.
+5. Once the file is created, right click on the file and select 'open with' and choose text editor.
 
 <br>![](/exercises/ex6/ex6.3/images/7_opentexteditor.png) 
 
@@ -82,7 +87,7 @@ Your task is to integrate these historical logs into your CAP application withou
   "RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS": {
     "target": {
       "object": "VT_HISTORICAL_AUDIT_LOGS",
-      "schema" : "DL_USER"
+      "schema" : "AC230193U00"
     }
   }
 }
