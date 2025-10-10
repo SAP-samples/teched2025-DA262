@@ -21,7 +21,7 @@ In this exercise, you will create a [SAP HANA Deployment Infrastructure ( HDI ) 
 - __Paste the Passcode__ and then click __"Sign in"__
 ![alt text](/exercises/ex6/images/6_pastepasscode.png)  
 
-- The __"Cloud Foundry Target environment Org ID"__ and __"CF Space"__ will be set automatically.
+- Choose the __"Cloud Foundry Target environment Org ID"__ and __"CF Space"__  as shown below:
 ![alt text](/exercises/ex6/images/7_cf_target.png)    
   
 
@@ -131,5 +131,4 @@ In order to add the data to the target HDI container
 
 You've now created a new HDI container and bound to your CAP Project. You can deploy the project to your SAP HANA Cloud instance and view the data in SAP HANA database explorer.
 
-Continue to - [Exercise 7 - Run your application](../ex7/README.md)
-
+Continue to - [Exercise 6.1 - Add SAP HANA Cloud Native Artifacts to a CAP Application](../ex6/ex6.1/README.md)

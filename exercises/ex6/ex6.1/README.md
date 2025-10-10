@@ -135,3 +135,5 @@ cds build --production
 
 <br>![](/exercises/ex6/ex6.1/images/26_viewodata.png) 
 
+
+Continue to - [Exercise 6.2 - Building and Integrating a HANA Stored Procedure into a CAP Service](../ex6/ex6.2/README.md)
