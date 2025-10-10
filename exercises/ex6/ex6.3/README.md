@@ -138,7 +138,7 @@ entity VT_HISTORICAL_AUDIT_LOGS {
 
 In this exercise, you extended an existing CAP-based Risk Management application to include historical data stored in SAP HANA Cloud Data Lake, showcasing how to enrich applications without violating clean core principles.
 
-Continue to - [Exercise 7 - Run your application for testing](../ex7/README.md)
+Continue to - [Exercise 7 - Run your application for testing](../../ex7/README.md)
 
 
 

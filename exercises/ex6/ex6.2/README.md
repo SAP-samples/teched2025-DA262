@@ -163,7 +163,7 @@ Body: {}
 
 In this exercise, we created a calculateRiskScore stored procedure in SAP HANA to compute risk metrics for the Risks entity and exposed it via a CAP service as an OData function. By defining the function in service.cds and implementing the handler in service.js, we made the procedure accessible through HTTP requests, allowing it to be called directly from a browser or REST client while returning JSON results from HANA.
 
-Continue to - [Exercise 6.3 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake](../ex6/ex6.3/README.md)
+Continue to - [Exercise 6.3 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake](../ex6.3/README.md)
 
 
 

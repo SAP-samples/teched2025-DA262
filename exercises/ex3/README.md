@@ -37,12 +37,7 @@ if the impact of the current risk is greater than 10000 dollars set the critical
 
 <br>__7.__ The code in the ./srv/code/risks-logic.js-file now looks as follows :
 ```javascript
-/**
- * 
- * @After(event = { "READ" }, entity = "techedda181demoSrv.Risks")
- * @param {(Object|Object[])} results - For the After phase only: the results of the event processing
- * @param {Object} request - User information, tenant-specific CDS model, headers and query parameters
-*/
+
 module.exports = async function(results, request) {
     if (!results) return;
 

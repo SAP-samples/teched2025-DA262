@@ -113,7 +113,7 @@ module.exports = cds.service.impl(async function() {
 <br>__14.__ Now  __copy__ the __API Key__ and  the __SANDBOX_URL__ and add it to API_BUSINESS_PARTNER configuration in the __package.json__ file
 
 ```
-"APIKey": bevWzLBHsR00qBdYwhhbVttRIjhiA0rY
+"APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
 ```
 ```
 https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
@@ -126,10 +126,10 @@ https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
           "credentials": {
             "url": "<URL>",
              "headers": {
-                "APIKey": <API_KEY>
+                "APIKey": "<API_KEY>"
             }
           }
-        },
+        }
 
 ```
 <br>__15.__ Your __package.json__ should look as follows:
@@ -141,10 +141,10 @@ https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
           "credentials": {
             "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
              "headers": {
-                "APIKey": <API_KEY>
+                "APIKey": "<API_KEY>"
             }
           }
-        },
+        }
 
 ```
 <br>__16.__ Save and close the files.
@@ -158,4 +158,3 @@ The handler is invoked when your BusinessPartner service is called for a READ, s
 You have now successfully extended the CAP service with the consumption of an external Business Partner Service
 
 Continue to  - [Exercise 5 - Add UI to your application ](../ex5/README.md)
-
