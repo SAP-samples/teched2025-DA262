@@ -11,9 +11,10 @@ By consuming the Business Partner API definition from SAP API Business Accerlato
  
 > __ℹ️ NOTE__: the Application-to-Cross Application (A2X) service category objects is targeted to facilitate the exchange of business information between a system and an unspecified client [service categories in APIs on SAP Business Accelerator Hub documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8308e6d301d54584a33cd04a9861bc52/1e60f14bdc224c2c975c8fa8bcfd7f3f.html?locale=en-US).
 
-<br>__1.__ Go to the folder __business-partner__ and download the __API_BUSINESS_PARTNER.edmx__ file.
+<br>__1.__ Go to the folder <a href="../business-partner/API_BUSINESS_PARTNER.edmx" target="_blank">business-partner</a>
+ and download the __API_BUSINESS_PARTNER.edmx__ file.
 
-- Once downloaded, __upload__ the __.edmx-file__ to the root folder of your project.
+- After downloading, upload the __.edmx__ file to the root folder of your project. To access the __upload__ option, click on an empty area within your project structure.
 ![alt text](/exercises/ex4/images/2_upload.png)
 ![alt text](/exercises/ex4/images/3_upload_root.png)
 
@@ -50,11 +51,11 @@ using { API_BUSINESS_PARTNER } from '../srv/external/API_BUSINESS_PARTNER';
 ## Exercise 4.2 - Edit the Data Model and Service Definition with Business Partner
 In the following steps, we define the data model and service model relationship with the Business Partner API.
 
-<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below:
+<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below by clicking on __...__:
 ![](/exercises/ex4/images/11_opengm.png)
 
 <br>__7.__  Select the __"Risks" entity__ 
-- and __click__ on __"Add relationship", 
+- and __click__ on __"Add relationship"__, 
 - then click into the empty space to open the next dialog
 ![alt text](/exercises/ex4/images/12_addrel.png)
 
@@ -66,7 +67,7 @@ In the following steps, we define the data model and service model relationship 
 ![alt text](/exercises/ex4/images/13_dia.png)
 
 <br>__9.__ Now the data model would look as follows :
-![alt text](/exercises/ex4/images2/14_dm.png)
+![alt text](/exercises/ex4/images/14_dm.png)
 
 <br>__10.__ Go back to your __Storyboard__,  under __service__, select __"Open in Graphical Modeler"__ as shown below. 
 - click on __Projection__ and add it to an empty space.
@@ -110,14 +111,7 @@ module.exports = cds.service.impl(async function() {
     });
 });
 ```
-<br>__14.__ Now  __copy__ the __API Key__ and  the __SANDBOX_URL__ and add it to API_BUSINESS_PARTNER configuration in the __package.json__ file
-
-```
-"APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
-```
-```
-https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
-```
+<br>__14__. Open the package.json file and replace the existing API_BUSINESS_PARTNER configuration with the JSON configuration provided below.
 
 ```json
       "API_BUSINESS_PARTNER": {
@@ -132,6 +126,13 @@ https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
         }
 
 ```
+-  __copy__ the below given __API Key__ and  the __SANDBOX_URL__
+```
+"APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
+```
+```
+https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
+```
 <br>__15.__ Your __package.json__ should look as follows:
 
 ```json
@@ -141,12 +142,14 @@ https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
           "credentials": {
             "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
              "headers": {
-                "APIKey": "<API_KEY>"
+                "APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
             }
           }
         }
 
 ```
+> [OPTIONAL] Right click on empty space, click on __format document__ to indent.
+
 <br>__16.__ Save and close the files.
 
 You've now created a custom handler for your service. This time it called on for the READ event.

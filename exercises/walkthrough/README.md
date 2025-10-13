@@ -6,7 +6,7 @@ This session is intended for developers and architects interested in extensibili
 
 ## Objectives ✅
 
-After completing these steps you will have:
+After completing these steps you will :
 
 - Apply SAP Clean Core principles for side-by-side extensibility.
 
@@ -26,18 +26,18 @@ After completing these steps you will have:
 
 - Create and integrate a HANA stored procedure in a CAP service.
 
-- Access historical audit data from SAP HANA Cloud Data Lake.
+- Access historical audit data from SAP HANA Cloud Data Lake files.
 
 - Deploy and run your clean core application on SAP BTP.
 
 ## Architecture Diagram 🎨
 
-<br>![](/exercises/walkthrough/images/DA262_Architecture_diagram.png)
+<br>![](/exercises/walkthrough/images/DA262.png)
 
 
 ## Access to workspace 🚀
 
-👉 Click [here]((https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login))
+👉 Click <a href="https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login" target="_blank">here</a>
  to start setting up your SAP Build Code workspace and begin the hands-on exercises.
 
 Continue to - [ Getting Started - Setup of your workspace ](../setup/README.md)

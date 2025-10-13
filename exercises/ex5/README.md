@@ -9,7 +9,7 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 <br>__2.__ Enter the details for the UI application, 
 - Display name: __RiskApplication__
 - Application name: __riskapplication__
-- select your project's __service-object name__ as a data source
+- select your project's __service-object name__ _( example :risk_Management_U00Srv )_ as a data source
 - then _click_ __"Next"__
 <br>![](/exercises/ex5/images/2_ui_config.png)
 
@@ -32,7 +32,7 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 - You've now created the List report UI to your application.
 <br><br>  
 ## Exercise 5.2 - Now modify the UI  ✏️🖼️
-<br>__7.__ Click on __Open in Page Map__ under the UI Applications. __"Page Map"__ is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
+<br>__7.__ Click on __...__ & click on __Open in Page Map__ under the UI Applications. __"Page Map"__ is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
 <br>![](/exercises/ex5/images/6_pagemap.png)
 
 <br>__8.__  Click on the icon __Configure Page__ to edit the page's properties and settings. 
@@ -44,7 +44,7 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 <br>__10.__ Select the column <strong>impact</strong> and on the right pane, scroll down to find the criticality property and set the value to criticality.Therefore __impact__ will now show the criticality threshold based on the risks.
 <br>![](/exercises/ex5/images/9_selcrit.png)
 
-<br>__11.__ Add the criticality representation with icon. This will add the icon next to the value which indicates the risk level visually. 
+<br>__11.__ Wait a few seconds until the new option labeled __Criticality Representation__ appears. Then, add the criticality representation with an icon—this will display an icon next to the value, visually indicating the risk level.
 <br>![](/exercises/ex5/images/10_criticon.png)
 
 <br>__12.__ Go back to the page map and Select the configure icon of object page section.
@@ -62,7 +62,7 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 <br>__15.__ Rename the BusinessPartner_BusinessPartner label to BusinessPartner. 
 <br>![](/exercises/ex5/images/15_renamebp.png)
 
-<br>__16.__ Your __storyboard__ should now look like this. 
+<br>__16.__ Close the pagemap, return to your __storyboard__ & it should now look like below. 
 
 <br>![](/exercises/ex5/images/16_storyboardfinal.png)
 

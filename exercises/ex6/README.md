@@ -1,6 +1,7 @@
 # Exercise 6 - Bind your application to an HDI Container and view the data in SAP HANA Database Explorer
 
-In this exercise, you will create a [SAP HANA Deployment Infrastructure ( HDI ) container](https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/3ef0ee9da11440e4b01708455b8497a9.html) and bind that container to our project and deploy the project to SAP HANA Cloud.
+In this exercise, you will create a <a href="https://help.sap.com/docs/SAP_HANA_PLATFORM/3823b0f33420468ba5f1cf7f59bd6bd9/3ef0ee9da11440e4b01708455b8497a9.html" target="_blank">SAP HANA Deployment Infrastructure (HDI) container</a>
+and bind that container to our project and deploy the project to SAP HANA Cloud.
 
 
 ## Exercise 6.1  Login to your Cloud Foundry space and create a HDI container 👤🔓
@@ -9,24 +10,27 @@ In this exercise, you will create a [SAP HANA Deployment Infrastructure ( HDI ) 
 - Click on __"Cloud Foundry login"-icon__ in the left-side activity bar
 ![alt text](/exercises/ex6/images/1_cflogin.png)
   - or or alternative search for the CF login command in the top command search  ![alt text](/exercises/ex6/images/2_cfcommandsearch.png)   
-- Verify the correct __"Cloud Foundry Endpoint URL"__ from the image below.
-- then select SSO Passcode and _click_ __"Open a new browser ..."__ to generate and copy a SSO passcode.
+
+2. Verify the correct __"Cloud Foundry Endpoint URL"__ from the image below.
+3. then select SSO Passcode and _click_ __"Open a new browser ..."__ to generate and copy a SSO passcode.
 
 <br>![](/exercises/ex6/images/3_gensso.png)
-- This will open a new browser tab, enter __academy platform__ and click on __Sign in with alternative provider__
+
+4.  This will open a new browser tab, enter __academy platform__ and click on __Sign in with alternative provider__
 <br>![](/exercises/ex6/images/4_enterap.png)
 - __Copy__ the passcode by clicking on the icon.
 <br>![](/exercises/ex6/images/5_copyicon.png)
 
-- __Paste the Passcode__ and then click __"Sign in"__
+5.  __Paste the Passcode__ and then click __"Sign in"__
 ![alt text](/exercises/ex6/images/6_pastepasscode.png)  
 
 - Choose the __"Cloud Foundry Target environment Org ID"__ and __"CF Space"__  as shown below:
 ![alt text](/exercises/ex6/images/7_cf_target.png)    
   
 
+## Exercise 6.2 - Prepare your multi-target application & bind to an HDI container 📎
 
-2. The next step is to __prepare the Multi-Target Application definition__ (mta.yaml-file)  
+1. The next step is to __prepare the Multi-Target Application definition__ (mta.yaml-file)  
 Service- and target runtime-dependencies are declared within the mta.yaml-file, using some terminal commands, the file can be easily created and filled with the information about the SAP HANA and HDI container runtime.  
 
 Go to Project Explorer, an __open a New Terminal__ window
@@ -42,7 +46,10 @@ cds add mta
 ```shell
 cds add hana
 ```
-- Once added successfully, you will see the __mta.yaml__ file in your project structure.
+2. Once added successfully, you will see the __mta.yaml__ file in your project structure & your SAP HANA Project module appears in the __SAP HANA Projects__ view.
+
+> __ℹ️ NOTE__: You can move the SAP HANA Projects view to above by simply dragging and dropping.
+
 <br>![](/exercises/ex6/images/9_mtaadd.png)
 
 3. Now __create__ and __bind__ your __HDI container__
@@ -83,7 +90,7 @@ Click on __"Enable and do not ask again"__.
 <br>![](/exercises/ex6/images/20_deploy.png)
 <br><br>
 
-## Exercise 6.2  Go to SAP HANA Database explorer and check the tables 🗄️📁
+## Exercise 6.3 - Go to SAP HANA Database explorer and check the tables 🗄️📁
 
 7. Click on database exploerer icon under SAP HANA Projects again, which will open the SAP HANA Database explorer view. 
 <br>![](/exercises/ex6/images/15_opendb.png)

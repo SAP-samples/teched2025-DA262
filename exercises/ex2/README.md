@@ -13,7 +13,8 @@ In this exercise, we will create a risk management application, helps organizati
 -  _go_ to __"Data Model and Service Creation"__ and _Click_ on __"Open Joule"__  
 <br>![](/exercises/ex2/images/2_openjoule.png)
 
-<br>__3.__ Now __Joule__, the _generative AI-based code development copilot / assistant_ in SAP Build Code shows up on the left side and is now ready to use.
+<br>__3.__ Now, Joule, the generative AI–powered code development copilot in SAP Build Code, appears on the left panel and is ready for use.
+Also, ensure that the command __/cap-gen-model__ is available; if it isn’t, type it in manually.
 <br>![](/exercises/ex2/images/3_joule.png)
 
 <br>__4.__ Next, __copy__ the below text to your Joule assistant to generate the data model and services.
@@ -45,11 +46,53 @@ Create a risk management app with risks and mitigations. Each risk may refer to 
 <br>![](/exercises/ex2/images/8_project_explorer.png)
 <br>![](/exercises/ex2/images/9_cdsfiles.png)
 
+- __schema.cds__
+```cds
+namespace Risk_Management_U00;
+using { cuid, managed } from '@sap/cds/common';
+
+@assert.unique: { title: [title] }
+entity Risks : cuid, managed {
+  title: String(100) @mandatory;
+  description: String(500);
+  impact: Integer;
+  criticality: Integer;
+  status: String(20);
+  mitigations: Association to many Mitigations on mitigations.risk = $self;
+}
+
+@assert.unique: { title: [title] }
+entity Mitigations : cuid, managed {
+  title: String(100) @mandatory;
+  description: String(500);
+  counter: Integer;
+  risk: Association to Risks;
+}
+
+```
+
+-__service.cds__
+```cds
+using { Risk_Management_U00 as my } from '../db/schema.cds';
+
+@path: '/service/risk_Management_U00'
+@requires: 'authenticated-user'
+service risk_Management_U00Srv {
+  @odata.draft.enabled
+  entity Risks as projection on my.Risks;
+  @odata.draft.enabled
+  entity Mitigations as projection on my.Mitigations;
+}
+```
+
+>In the files Schema.cds and Service.cds above, replace U00 with the unique number assigned to you.
+
 ## Exercise 2.2 Add Sample Data using Joule 🗃️✨
 
 <br>__9.__ Go back to the __"Generate AI-Powered Development"__-view
 - Go to __""Generate Sample Data"__ > __"Open Joule"__. 
-- Select the entity context by _clicking_ __"#db/schema.cds"__ and then enter the below prompt text. By preceding the prompt with __#-some-object-context__ you can more specifically instruct the context of the Joule generation task.
+- Joule panel opens with the command __/cap-gen-data__.
+- Select the entity context by typing __#__ & then _clicking_ __"#db/schema.cds"__ and then enter the below prompt text. By preceding the prompt with __#-some-object-context__ you can more specifically instruct the context of the Joule generation task.
 
 ![alt text](/exercises/ex2/images/10_openjoule_datagen.png)
 
@@ -57,19 +100,21 @@ Create a risk management app with risks and mitigations. Each risk may refer to 
 ```
  Generate sample data
 ```
-- Choose or type __#db/schema.cds__ and then enter the above prompt
+- Choose or type __#db/schema.cds__ and then enter the above prompt.
+
 ![alt text](/exercises/ex2/images/11_select_variable.png)
 
 
-<br>__10.__  __Accept__ the generated sample data, and you can see 2 csv files in the project test folder.
+<br>__10.__  __Accept__ the generated sample data, and you can see 2 csv files in the project __test__ folder.
 
 ![alt text](/exercises/ex2/images/12_accept_sampledata.png)
 
 ![alt text](/exercises/ex2/images/13_testdata_projecttree.png)  
 
 
-<br>__11.__ Go back to the __"Open Data Editor"__ in the Joule and to review the generated sample data. 
-Note, sample data is used to populate entities with predefined data sets for development and testing. It allows developers to quickly verify application functionality, simulate realistic scenarios, and validate service behavior. Sample data generated to the /test/data-project folder, by default will not be copied to the SAP HANA runtime.
+<br>__11.__ Go back to the joule panel and click on  __"Open Data Editor"__ & review the generated sample data. 
+
+> __ℹ️ NOTE__: Sample data is used to populate entities with predefined data sets for development and testing. It allows developers to quickly verify application functionality, simulate realistic scenarios, and validate service behavior. Sample data generated to the /test/data in the project folder, by default will not be copied to the SAP HANA runtime.
 
 
 ![alt text](/exercises/ex2/images/14_open_editor-sampledata.png)  

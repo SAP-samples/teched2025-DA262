@@ -3,7 +3,7 @@
 In this exercise, lets create a logic for the service with the help of Joule. We have our risks and mitigation as our entities, lets create a logic where if the impact of risk is greather than 10000, set the criticality of that risk to high or set it to warning.
 
 <br>__1.__ Go to your __"Storyboard"__, 
-- under the services, _select_ __"Open in Graphical Modeler"__, 
+- under the services, _select_ __"Open in Graphical Modeler"__, by click on __...__ 
 ![](/exercises/ex3/images/1_open_gm.png)  
 
 - choose the risk entity and select add logic.

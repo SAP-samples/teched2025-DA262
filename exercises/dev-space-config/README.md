@@ -2,7 +2,7 @@
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
 
-    - Launch the [SAP Build Lobby](https://sap-build-us10-trial.us10.build.cloud.sap/lobby)🚀
+    - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login" target="_blank">SAP Build Lobby</a>🚀
 
 <br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)
 
@@ -17,7 +17,7 @@
 
 4. Specify the dev space name and select extensions:
 - _Name_ the dev space: __TechEdDA262_U<##>__
-> In U<##>, ## represents the number given to you in the beginning of the exercise. eg : 01 
+> In U<##>, where ## represents the unique number assigned to you at the start of the exercise (for example, 01).
 - What kind of application you want to create: 
     - Select __Full Stack Application Using Productivity Tools__
 - _Select_ 4 SAP HANA extensions
