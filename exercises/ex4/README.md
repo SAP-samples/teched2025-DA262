@@ -156,6 +156,25 @@ You've now created a custom handler for your service. This time it called on for
 
 The handler is invoked when your BusinessPartner service is called for a READ, so whenever there’s a request for business partner data, this handler is called. It ensures the request for the business partner is directed to the external business partner service. 
 
+<br>__17.__ Test your application by running the following command in the terminal:
+
+![alt text](/exercises/ex4/images/21_openterminal.png)
+
+```shell
+cds watch
+```
+
+![alt text](/exercises/ex4/images/22_cdswatch.png)
+
+- After the server starts, click the link http://localhost:4004, it will open a new browser tab.
+
+![alt text](/exercises/ex4/images/23_preview.png)
+
+- In the preview, select A_BusinessPartner to view the available data.
+
+![alt text](/exercises/ex4/images/24_bpdata.png)
+
+
 ## Summary 📝
 
 You have now successfully extended the CAP service with the consumption of an external Business Partner Service

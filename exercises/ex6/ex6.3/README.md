@@ -1,144 +1,193 @@
-# Exercise 6.3 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake 💾
+# Exercise 6.3 - Building and Integrating a HANA Stored Procedure into a CAP Service 🧩
 
-Data tiering in SAP HANA Cloud gives you a cost-effective storage solution, which allows you to assigning data to different storage and processing tiers so that you can fulfill your data management strategies.
+In this step, we create an SAP HANA stored procedure that performs the calculation of risk scores based on key parameters within the Risk and Mitigation application. The stored procedure encapsulates the business logic required to evaluate risks efficiently at the database level, ensuring high performance and scalability.
 
-__The Challenge:__ This historical data (the Cold Data) is too voluminous (gigabytes/terabytes) and too expensive to keep in the fast, in-memory Core SAP HANA DB. Storing it there would slow down the daily, mission-critical transactions.
+Once the procedure is implemented, we expose it as a function in the CAP (Cloud Application Programming) service layer, allowing it to be invoked securely through the application’s API. This integration enables other services or UI components to dynamically retrieve computed risk scores in real time, promoting a clean separation of concerns between data processing and service exposure.
 
-Your task is to integrate these historical logs into your CAP application without copying data or modifying the core model.
-
-## Pre-setup ( done by SAP )
-
-1. The Data Lake has been configured, and historical data files have been uploaded. 
-
-<br>![](/exercises/ex6/ex6.3/images/1_dlfiles.png) 
-
-2. A database user named __AC230193U00__ and a role __HC_DL_FILES_ROLE__ have been created.
-The necessary privileges have been granted to this role to enable the required operations for this exercise.
-
-3. Virtual table access to the Data Lake files has been established, enabling seamless querying of the stored data.
-
-<br>![](/exercises/ex6/ex6.3/images/2_vt.png) 
-
-4. A User-Provided Service Instance named __UPS_DA262__ has been created.
-
->💡 __Insight Corner__: The User-Provided Service (UPS) holds the schema details that define how virtual tables connect to the Data Lake files.
-It acts as a bridge, allowing users to easily access and query external data stored in the Data Lake directly from the database environment.
+1. To create a stored procedure, first create a new folder named procedure inside the src directory.
 
 
-## Add Existing User Provided Service Instance into your Project
+- Go to View > Command Pallette, create a new database artifact named __calculateRiskScore__ of type hdbprocedure.
 
-1. Go to your SAP HANA Projects, click on __'+'__ in database connections.
+<br>![](/exercises/ex6/ex6.3/images/1_cmdpalette.png) 
 
-<br>![](/exercises/ex6/ex6.3/images/3_addups.png) 
 
-2. Click on the drop down for 'Select connection type' and choose 'Existing user-provided service instance' & select __UPS_DA262__.
+<br>![](/exercises/ex6/ex6.3/images/2_createproc.png) 
 
-<br>![](/exercises/ex6/ex6.3/images/4_selectups.png) 
+<br>![](/exercises/ex6/ex6.3/images/14_procview.png) 
 
-3. Your SAP HANA Projects view should look like this:
 
-<br>![](/exercises/ex6/ex6.3/images/5_hanaprojview.png) 
+2. Create a stored procedure that computes the risk score for each risk. Paste the following script into your newly created .hdbprocedure file.
 
-4. In the __src__ folder, create a new subfolder named __Grants__, and inside it, create a new file called __UPS_DA262.hdbgrants__.
+<br>![](/exercises/ex6/ex6.3/images/3_procedure.png) 
 
-<br>![](/exercises/ex6/ex6.3/images/6_createhdbgrants.png) 
+> __ℹ️ NOTE__:The RISK_MANAGEMENT_U00_RISKS & RISK_MANAGEMENT_U00_MITIGATIONS you see , __REPLACE__ ## where ## represents the unique number assigned to you at the start of the exercise (for example, 01 or 39)
 
-5. Once the file is created, right click on the file and select 'open with' and choose text editor.
-
-<br>![](/exercises/ex6/ex6.3/images/7_opentexteditor.png) 
-
-6. Paste the following json. 
-
-```json
-{
-	"ServiceName_1": {
-		"application_user": {
-			"global_roles": [
-				{
-					"roles": [
-						"HC_DLFILES_ROLE"
-					]
-				}
-			]
-		},
-		"object_owner": {
-			"global_roles": [
-				{
-					"roles": [
-						"HC_DLFILES_ROLE"
-					]
-				}
-			]
-		}
-	}
-}
+```SQL
+PROCEDURE "calculateRiskScore"( 
+    OUT result TABLE (
+        ID NVARCHAR(36),
+        title NVARCHAR(100),
+        impact INTEGER,
+        criticality INTEGER,
+        mitigations INTEGER,
+        riskScore DECIMAL(15,2)
+    )
+)
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   READS SQL DATA AS
+BEGIN
+   result = 
+        SELECT 
+            R.ID,
+            R.title,
+            R.impact,
+            R.criticality,
+            COUNT(M.ID) AS mitigations,
+            CASE 
+                WHEN COUNT(M.ID) = 0 THEN R.impact * R.criticality
+                ELSE R.impact * R.criticality / (COUNT(M.ID) + 1)
+            END AS riskScore
+        FROM "RISK_MANAGEMENT_U00_RISKS" AS R
+        LEFT JOIN "RISK_MANAGEMENT_U00_MITIGATIONS" AS M
+        ON M.risk_ID = R.ID
+        GROUP BY R.ID, R.title, R.impact, R.criticality;
+END
 ```
 
-7. Now lets create a __synonym__ ,  go to src folder and create a new file called __RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS__
 
-> __ℹ️ NOTE__: Replace the U00 with your U## number.
+3. Deploy the to the database again using the SAP HANA Projects view.
 
-<br>![](/exercises/ex6/ex6.3/images/8_syn.png) 
+<br>![](/exercises/ex6/ex6.3/images/4_deploy.png) 
 
-8. Right click on the newly created file and open with text editor. Paste the following json.
+4. Once the deployment is successful, navigate to the Database Explorer and open your HDI container.
 
-```json
-{
-  "RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS": {
-    "target": {
-      "object": "VT_HISTORICAL_AUDIT_LOGS",
-      "schema" : "AC230193U00"
-    }
+<br>![](/exercises/ex6/ex6.3/images/5_openhdi.png) 
+
+5. The newly created procedure is now available and ready for testing.
+
+<br>![](/exercises/ex6/ex6.3/images/6_checkproc.png) 
+
+6.  Generate a CALL statement and verify the results.
+
+<br>![](/exercises/ex6/ex6.3/images/7_gencall.png) 
+
+7. The procedure now outputs all rows containing their corresponding risk scores.
+
+<br>![](/exercises/ex6/ex6.3/images/8_proccall.png) 
+
+8. Now we want to add this Procedure to the CAP service as a __action__. Edit __/srv/service.cds__.
+
+- Add the below action snippet in to the service definition.
+
+```cds
+action calculateRiskScore() returns array of {
+        ID          : UUID;
+        title       : String(100);
+        impact      : Integer;
+        criticality : Integer;
+        mitigations : Integer;
+        riskScore   : Decimal(15, 2);
+    };
+```
+This will expose an OData Function as part of the service interface. 
+
+- Your service.cds file should now look as follows:
+
+<br>![](/exercises/ex6/ex6.3/images/9_servicecds.png) 
+
+9. Adding the function to the service definition alone doesn’t make it functional. While tables and views are managed by CAP’s built-in handlers, functions need to be explicitly implemented through a service handler exit.
+
+- Open the service.js file in the /srv folder. CAP uses the matching name to identify this file as the place to implement custom exit handlers for the services defined in service.cds. Replace it with the following code.
+
+
+```javascript
+const cds = require('@sap/cds');
+const risks_Logic = require('./code/risks-logic');
+
+module.exports = class risk_Management_U00Srv extends cds.ApplicationService {
+  async init() {
+    const db = await cds.connect.to('db');
+
+    // After READ hook for Risks
+    this.after('READ', 'Risks', async (results, req) => {
+      const risks_Logic = require(path.join(__dirname, 'code/risks-logic'));
+      await risks_Logic(results, req);
+    });
+
+   // GET handler for calculateRiskScore
+    this.on('calculateRiskScore', async (req) => {
+        try {
+            const result = await db.run(`
+                <YOUR PROCEDURE CALL>
+            `);
+            return result;  // return the first table
+        } catch (err) {
+            console.error('Error calling HANA procedure:', err);
+            req.error(500, 'Failed to calculate risk scores');
+        }
+    });
+
+    return super.init();
   }
-}
+};
+
+```
+> __ℹ️ NOTE__: Use the CALL statement generated in Database Explorer to replace the one currently in your code.
+
+- Navigate back to SAP HANA Database Explorer, copy the CALL statement it generated, and insert it into your script. 
+
+<br>![](/exercises/ex6/ex6.3/images/11_copycall.png) 
+
+- Remove the __RESULT => ?__ and insert __?__
+
+- Final version of __service.js__ should look as follows:
+
+<br>![](/exercises/ex6/ex6.3/images/10_servicejs.png) 
+
+10. Lets test the service.
+
+- create an HTTP file. In the project root folder, right click and create a folder __http-requests__ and add a new file __calculateRiskScore.http__
+
+<br>![](/exercises/ex6/ex6.3/images/12_createfolder.png) 
+
+- Write the post request inside the newly created file i.e __calculateRiskScore.http__
+
+```http
+POST http://localhost:4004/service/risk_Management_U00/calculateRiskScore
+Content-Type: application/json
+Accept: application/json
+Body: {}
 ```
 
-9. Deploy your HDI container.
+- You can run the application by the following command:
 
-<br>![](/exercises/ex6/ex6.3/images/9_deploy.png) 
-
-10. Open your HDI container.
-
-<br>![](/exercises/ex6/ex6.3/images/10_openhdi.png) 
-
-11. Click on Synonyms,  right click on the __RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS__ and click on open data to view the data.
-
-<br>![](/exercises/ex6/ex6.3/images/11_opensyndata.png) 
-
-12. Now, go back to your SAP Build Code & to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model. 
-
-```cds
-@cds.persistence.exists
-entity VT_HISTORICAL_AUDIT_LOGS {
-    key BUSINESS_PARTNER_ID      : String(7);
-    TRANSACTION_DATE        : Date;
-    AUDIT_SCORE             : Double;
-    LOG_DETAIL              : String(500);
-}
 ```
-- newly edited schema.cds should look like follows:
-
-<br>![](/exercises/ex6/ex6.3/images/12_datamodel.png) 
-
-13. go to srv folder > select service.cds and add the following.
-
-```cds
- @readonly
-    entity VT_HISTORICAL_AUDIT_LOGS as 
-        projection on my.VT_HISTORICAL_AUDIT_LOGS;
+cds watch --profile hybrid
 ```
-<br>![](/exercises/ex6/ex6.3/images/13_addsrv.png) 
 
-- service.cds file should look as follows:
-
-<br>![](/exercises/ex6/ex6.3/images/14_srvfile.png) 
-
+- Place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
+<br>![](/exercises/ex6/ex6.3/images/15_run.png) 
 
 ## Summary 📝
 
-In this exercise, you extended an existing CAP-based Risk Management application to include historical data stored in SAP HANA Cloud Data Lake, showcasing how to enrich applications without violating clean core principles.
+In this exercise, we created a calculateRiskScore stored procedure in SAP HANA to compute risk metrics for the Risks entity and exposed it via a CAP service as an OData function. By defining the function in service.cds and implementing the handler in service.js, we made the procedure accessible through HTTP requests, allowing it to be called directly from a browser or REST client while returning JSON results from HANA.
 
-Continue to - [Exercise 7 - Run your application for testing](../../ex7/README.md)
+Continue to - [Exercise 6.4 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake](../ex6.4/README.md)
+
+
+
+
+
+
+
+
+ 
+
+
+
 
 
 

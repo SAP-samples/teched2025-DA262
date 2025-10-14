@@ -138,4 +138,4 @@ In order to add the data to the target HDI container
 
 You've now created a new HDI container and bound to your CAP Project. You can deploy the project to your SAP HANA Cloud instance and view the data in SAP HANA database explorer.
 
-Continue to - [Exercise 6.1 - Add SAP HANA Cloud Native Artifacts to a CAP Application](../ex6/ex6.1/README.md)
+Continue to - [Exercise 6.1 - Run your application for testing](../ex6/ex6.1/README.md)

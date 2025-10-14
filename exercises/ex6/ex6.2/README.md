@@ -1,184 +1,221 @@
-# Exercise 6.2 - Building and Integrating a HANA Stored Procedure into a CAP Service 🧩
+# Exercise 6.2 - Add SAP HANA Cloud Native Artifacts to a CAP Application
 
-In this step, we create an SAP HANA stored procedure that performs the calculation of risk scores based on key parameters within the Risk and Mitigation application. The stored procedure encapsulates the business logic required to evaluate risks efficiently at the database level, ensuring high performance and scalability.
+In this exercise, you will extend a SAP CAP application by adding SAP HANA Cloud native artifacts, such as calculation views. You will create a join between risks and mitigations to analyze and visualize risk data more effectively. By leveraging HANA Cloud features, you will perform advanced data modeling and aggregation directly within the database. This hands-on activity demonstrates how to combine CAP application logic with powerful HANA Cloud capabilities for real-time insights.
 
-Once the procedure is implemented, we expose it as a function in the CAP (Cloud Application Programming) service layer, allowing it to be invoked securely through the application’s API. This integration enables other services or UI components to dynamically retrieve computed risk scores in real time, promoting a clean separation of concerns between data processing and service exposure.
+## Exercise 6.2.1 -  Create Calculation View and Expose via CAP (SAP HANA Cloud) 
 
-1. Create stored procedure
+>💡 __Insight corner__: Calculation Views and other HANA native artifacts allow you to leverage HANA specific features and optimizations that might not otherwise be available at the abstraction layers within the SAP Cloud Application Programming Model. Calculation Views are especially good at aggregation and filtering of large datasets.
 
-- Go to View > Command Pallette, create a new database artifact named __calculateRiskScore__ of type hdbprocedure.
+1. Create a new Calculation View via View > Command Pallette and then type __SAP HANA: Create SAP HANA Database Artifact__ command pallete entry
 
 <br>![](/exercises/ex6/ex6.2/images/1_cmdpalette.png) 
 
-<br>![](/exercises/ex6/ex6.2/images/2_createproc.png) 
+<br>![](/exercises/ex6/ex6.2/images/2_viewcreate.png) 
 
-2. Create a stored procedure that computes the risk score for each risk. Paste the following script into your newly created .hdbprocedure file.
+2. Create a calculation view called __V_RISKS__ of Data Category __DIMENSION__ and Dimension Type of __STANDARD__. Press Create.
 
-<br>![](/exercises/ex6/ex6.2/images/3_procedure.png) 
+<br>![](/exercises/ex6/ex6.2/images/3_cvdetails.png) 
 
-```SQL
-PROCEDURE "calculateRiskScore"( 
-    OUT result TABLE (
-        ID NVARCHAR(36),
-        title NVARCHAR(100),
-        impact INTEGER,
-        criticality INTEGER,
-        mitigations INTEGER,
-        riskScore DECIMAL(15,2)
-    )
-)
-   LANGUAGE SQLSCRIPT
-   SQL SECURITY INVOKER
-   --DEFAULT SCHEMA <default_schema_name>
-   READS SQL DATA AS
-BEGIN
-   result = 
-        SELECT 
-            R.ID,
-            R.title,
-            R.impact,
-            R.criticality,
-            COUNT(M.ID) AS mitigations,
-            CASE 
-                WHEN COUNT(M.ID) = 0 THEN R.impact * R.criticality
-                ELSE R.impact * R.criticality / (COUNT(M.ID) + 1)
-            END AS riskScore
-        FROM "RISK_MANAGEMENT_U00_RISKS" AS R
-        LEFT JOIN "RISK_MANAGEMENT_U00_MITIGATIONS" AS M
-        ON M.risk_ID = R.ID
-        GROUP BY R.ID, R.title, R.impact, R.criticality;
-END
+- Create a new folder named calculationview under the src directory, then move the newly created calculation view (V_RISKS.hdbcalculationview) into this folder by dragging and dropping it.
+
+
+3. The new artifact is created in the /db/src/calculationview folder. This way you can have a single HANA database model that contains both HANA native content and CAP generated content.
+
+<br>![](/exercises/ex6/ex6.2/images/28_cvfolder.png) 
+
+4. Click on the __V_RISKS.hdbcalculationview__ to load the graphical calculation view editor.
+
+<br>![](/exercises/ex6/ex6.2/images/5_viewcv.png) 
+
+5. Now lets model the join relationship. Drop a join node into the modeling space.Click on the join and drop it at the end of the projection.
+
+<br>![](/exercises/ex6/ex6.2/images/6_dropjoin.png) 
+
+6. Use the __'+'__ sign sign to add tables to the node. On clicking, it will open a new dialog box to add the data source.
+
+<br>![](/exercises/ex6/ex6.2/images/7_addds.png) 
+
+7. Type in RISK and then select the table you created earlier via CDS called __RISK_MANAGEMENT_U00_RISKS 
+
+<br>![](/exercises/ex6/ex6.2/images/29_addrisk.png) 
+
+- Repeat the process to add the __RISK_MANAGEMENT_U00_MITIGATIONS__ and press Finish. 
+
+<br>![](/exercises/ex6/ex6.2/images/29_addmiti.png) 
+
+>__ℹ️ NOTE:__ Choose in the same order. 
+
+<br>![](/exercises/ex6/ex6.2/images/8_addtables.png) 
+
+8. You should see both artifacts in the join node.
+
+<br>![](/exercises/ex6/ex6.2/images/9_artifacts.png) 
+
+9. Double-click on the join node. A panel will open on the right.
+
+>__ℹ️ NOTE:__ The two tables might not be visible initially. Please check your zoom level and try moving your cursor to locate them.
+
+<br>![](/exercises/ex6/ex6.2/images/10_joinpanel.png) 
+
+10. Drag and drop the ID field of the RISK to the RISK_ID field of the MITIGATIONS ( RISK_MANAGEMENT_U<##>_MITIGATIONS) field and Set the cardinality to 1..n.
+
+<br>![](/exercises/ex6/ex6.2/images/11_setcard.png) 
+
+11. In the Mapping tab, add the output columns as shown below by dragging them from the left panel to the right. You can select and drag multiple columns at once to speed up the process.
+
+<br>![](/exercises/ex6/ex6.2/images/30_addcols.png) 
+
+- You get a dialog box to make the column name unique. Choose free text and type _MITIGATION_
+
+<br>![](/exercises/ex6/ex6.2/images/27_uniquename.png) 
+
+- your final join shoulld have the following output columns.
+
+<br>![](/exercises/ex6/ex6.2/images/12_mapping.png) 
+
+12. Connect the join node with the Projection node using ↗️
+
+<br>![](/exercises/ex6/ex6.2/images/14_arrow.png) 
+<br>![](/exercises/ex6/ex6.2/images/15_connect.png) 
+
+13. Click on the Projection node and double-click on the _Join_1_ parent to add all the columns to the output.
+
+<br>![](/exercises/ex6/ex6.2/images/16_joinmap.png) 
+
+
+14. From the SAP HANA Projects view, press the Deploy button & Check the deployment log to make sure everything was successfully created in the database.
+
+<br>![](/exercises/ex6/ex6.2/images/17_deploy.png) 
+<br>![](/exercises/ex6/ex6.2/images/18_deploylogs.png) 
+
+15. Open the HDI Container in the Database Explorer. Choose your assigned user.
+
+<br>![](/exercises/ex6/ex6.2/images/19_openhdi.png) 
+
+16. Under Column Views you will find your Calculation View. Choose __Open Data__.
+
+<br>![](/exercises/ex6/ex6.2/images/20_opendata.png) 
+
+## Exercise 6.2.2 - Create calculation view proxy entity
+
+We now want to expose our Calculation View to the Cloud Application Programming model by creating a “proxy” entity for the view in the CDS data model.
+
+17. Return to the __SAP Build Code__ and open _schema.cds_.
+
+<br>![](/exercises/ex6/ex6.2/images/21_schemadef.png) 
+
+18. We need to add a matching entity definition for the Calculation View. This means redefining all the column names and data types / lengths. Doing so manually would be error prone, but the __hana-cli__ has a utility that will help. Open a new terminal. 
+
+19. We need our proxy entity to be created without the namespace in our current _schema.cds_. Therefore comment out the namespace line and add all the existing content except the __using ...__ line in a new context for __Risk_Management_U00__
+
+<br>![](/exercises/ex6/ex6.2/images/31_modifyCV.png) 
+
+- Install the __hana-cli__ with the following command:
+```
+npm install -g hana-cli
+```
+- Run the command cd db to navigate to the database directory
+```
+cd db
+```
+- Now issue the below command. With this command you are looking up the definition of the view but asking for the output (-o) in the CDS format
+```
+hana-cli inspectView -v V_RISKS -o cds
+```
+<br>![](/exercises/ex6/ex6.2/images/22_hanacli.png) 
+
+>💡 __Insight corner__: You can build a developer-centric SAP HANA command line tool called __hana-cli__, particularly designed to be used when performing SAP HANA development.
+
+- Run the below command to return to orginal app directory.
+```
+cd ..
 ```
 
-3. Deploy the to the database again using the SAP HANA Projects view.
+20. Copy this block from the terminal and paste it into the _schema.cds_ file at the end outside the context block.
 
-<br>![](/exercises/ex6/ex6.2/images/4_deploy.png) 
-
-4. Once the deployment is successful, navigate to the Database Explorer and open your HDI container.
-
-<br>![](/exercises/ex6/ex6.2/images/5_openhdi.png) 
-
-5. The newly created procedure is now available and ready for testing.
-
-<br>![](/exercises/ex6/ex6.2/images/6_checkproc.png) 
-
-6.  Generate a CALL statement and verify the results.
-
-<br>![](/exercises/ex6/ex6.2/images/7_gencall.png) 
-
-7. The procedure now outputs all rows containing their corresponding risk scores.
-
-<br>![](/exercises/ex6/ex6.2/images/8_proccall.png) 
-
-8. Now we want to add this Procedure to the CAP service as a __action__. Edit __/srv/service.cds__.
-
-- Add the below action snippet in to the service definition.
+<br>![](/exercises/ex6/ex6.2/images/23_copy.png) 
 
 ```cds
-action calculateRiskScore() returns array of {
-        ID          : UUID;
-        title       : String(100);
-        impact      : Integer;
-        criticality : Integer;
-        mitigations : Integer;
-        riskScore   : Decimal(15, 2);
-    };
-```
-This will expose an OData Function as part of the service interface. 
+// namespace Risk_Management_U00;
 
-- Your service.cds file should now look as follows:
+using {
+  cuid,
+  managed
+} from '@sap/cds/common';
 
-<br>![](/exercises/ex6/ex6.2/images/9_servicecds.png) 
+using {API_BUSINESS_PARTNER} from '../srv/external/API_BUSINESS_PARTNER';
 
-9. Adding the function to the service definition alone doesn’t make it functional. While tables and views are managed by CAP’s built-in handlers, functions need to be explicitly implemented through a service handler exit.
-
-- Open the service.js file in the /srv folder. CAP uses the matching name to identify this file as the place to implement custom exit handlers for the services defined in service.cds.
-
-
-```javascript
-const cds = require('@sap/cds');
-const risks_Logic = require('./code/risks-logic');
-
-module.exports = class risk_Management_U00Srv extends cds.ApplicationService {
-  async init() {
-    const db = await cds.connect.to('db');
-
-    // After READ hook for Risks
-    this.after('READ', 'Risks', async (results, req) => {
-      const risks_Logic = require(path.join(__dirname, 'code/risks-logic'));
-      await risks_Logic(results, req);
-    });
-
-   // GET handler for calculateRiskScore
-    this.on('calculateRiskScore', async (req) => {
-        try {
-            const result = await db.run(`
-                <YOUR PROCEDURE CALL>
-            `);
-            return result;  // return the first table
-        } catch (err) {
-            console.error('Error calling HANA procedure:', err);
-            req.error(500, 'Failed to calculate risk scores');
-        }
-    });
-
-    return super.init();
+context Risk_Management_U00 {
+  entity Risks : cuid, managed {
+    title           : String(100)
+    @mandatory;
+    description     : String(500);
+    impact          : Integer;
+    criticality     : Integer;
+    status          : String(20);
+    mitigations     : Association to many Mitigations
+                        on mitigations.risk = $self;
+    BusinessPartner : Association to one API_BUSINESS_PARTNER.A_BusinessPartner;
   }
-};
+
+  annotate Risks with @assert.unique: {title: [title], };
+
+  entity Mitigations : cuid, managed {
+    title       : String(100)
+    @mandatory;
+    description : String(500);
+    counter     : Integer;
+    risk        : Association to one Risks;
+  }
+
+  annotate Mitigations with @assert.unique: {title: [title], };
+}
+
+@cds.persistence.exists 
+@cds.persistence.calcview 
+Entity V_RISKS {
+key     TITLE: String(100)  @title: 'TITLE: TITLE' ; 
+        DESCRIPTION: String(500)  @title: 'DESCRIPTION: DESCRIPTION' ; 
+        IMPACT: Integer  @title: 'IMPACT: IMPACT' ; 
+        CRITICALITY: Integer  @title: 'CRITICALITY: CRITICALITY' ; 
+        STATUS: String(20)  @title: 'STATUS: STATUS' ; 
+        TITLE_MITIGATION: String(100)  @title: 'TITLE_MITIGATION: TITLE_MITIGATION' ; 
+        DESCRIPTION_MITIGATION: String(500)  @title: 'DESCRIPTION_MITIGATION: DESCRIPTION_MITIGATION' ; 
+        COUNTER_MITIGATION: Integer  @title: 'COUNTER_MITIGATION: COUNTER_MITIGATION' ; 
+}
 
 ```
-> __ℹ️ NOTE__: Use the CALL statement generated in Database Explorer to replace the one currently in your code.
 
-- Navigate back to SAP HANA Database Explorer, copy the CALL statement it generated, and insert it into your script. 
+>💡 __Insight corner__: CDS does have an annotation called @cds.persistence.exists. This annotation allows you to re-define an existing DB object and CDS won’t attempt to create or alter it. It will just assume it already exists in the matching state.There is also the annotation @cds.persistence.calcview. This will further tell the Cloud Application Programming Model that this target entity is also a Calculation View.
 
-<br>![](/exercises/ex6/ex6.2/images/11_copycall.png) 
+21. Now open the service.cds file from the /srv folder. Add this new Calculation View based entity to the CAP service as read-only.
 
-- Remove the __RESULT => ?__ and insert __?__
+```cds
 
-- Final version of __service.js__ should look as follows:
-
-<br>![](/exercises/ex6/ex6.2/images/10_servicejs.png) 
-
-10. Lets test the service.
-
-- create an HTTP file. In the project root folder, right click and create a folder __http-requests__ and add a new file __calculateRiskScore.http__
-
-<br>![](/exercises/ex6/ex6.2/images/12_createfolder.png) 
-
-- Write the post request inside the newly created file i.e __calculateRiskScore.http__
-
-```http
-POST http://localhost:4004/service/risk_Management_U00/calculateRiskScore
-Content-Type: application/json
-Accept: application/json
-Body: {}
+    @readonly
+    entity V_Risks  as projection on V_RISKS;
 ```
 
-- Place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
+<br>![](/exercises/ex6/ex6.2/images/24_servicemod.png) 
 
-<br>![](/exercises/ex6/ex6.2/images/13_test.png) 
+22. From the terminal, issue the below comamnd.
+```
+cds build --production
+```
+<br>![](/exercises/ex6/ex6.2/images/25_cdsbuild.png) 
 
+23. Although we didn’t add any new database artifacts to the project, the addition of an entity to the service layer causes new views to be generated within SAP HANA. Therefore we need to deploy to the database using the SAP HANA Projects view before we can test.
 
-## Summary 📝
+<br>![](/exercises/ex6/ex6.2/images/17_deploy.png) 
 
-In this exercise, we created a calculateRiskScore stored procedure in SAP HANA to compute risk metrics for the Risks entity and exposed it via a CAP service as an OData function. By defining the function in service.cds and implementing the handler in service.js, we made the procedure accessible through HTTP requests, allowing it to be called directly from a browser or REST client while returning JSON results from HANA.
+24. You can now run the application by clicking on the icon as shown below:
 
-Continue to - [Exercise 6.3 - Accessing Cold Data for Risk Management: Historical Audit via Data Lake](../ex6.3/README.md)
+<br>![](/exercises/ex6/ex6.2/images/32_run.png) 
 
+- This will open a new tab, where you can now view the service layer
+<br>![](/exercises/ex6/ex6.2/images/33_view.png) 
 
-
-
-
-
-
-
- 
-
-
-
+<br>![](/exercises/ex6/ex6.2/images/26_viewodata.png) 
 
 
-
-
-
-
+Continue to - [Exercise 6.3 - Building and Integrating a HANA Stored Procedure into a CAP Service](../ex6.3/README.md)
