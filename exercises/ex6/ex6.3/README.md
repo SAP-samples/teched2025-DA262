@@ -161,14 +161,18 @@ Content-Type: application/json
 Accept: application/json
 Body: {}
 ```
+ -  Replace the URL path with:
+POST http://localhost:4004/<@path:>/calculateRiskScore
+Here, @path refers to the service path defined in your service.cds file.
 
-- You can run the application by the following command:
+<br>![](/exercises/ex6/ex6.3/images/16_path.png) 
 
-```
-cds watch --profile hybrid
-```
 
-- Place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
+24. You can now run the application by clicking on the icon as shown below:
+
+<br>![](/exercises/ex6/ex6.2/images/32_run.png) 
+
+- Go to your http request, place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
 <br>![](/exercises/ex6/ex6.3/images/15_run.png) 
 
 ## Summary 📝

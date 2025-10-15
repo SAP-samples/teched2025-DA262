@@ -2,7 +2,7 @@
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
 
-    - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login" target="_blank">SAP Build Lobby</a>🚀
+    - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀
 
 <br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)
 

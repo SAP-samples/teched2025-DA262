@@ -109,6 +109,7 @@ It acts as a bridge, allowing users to easily access and query external data sto
 
 12. Now, go back to your SAP Build Code & to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model. 
 
+
 ```cds
 @cds.persistence.exists
 entity VT_HISTORICAL_AUDIT_LOGS {
@@ -125,9 +126,12 @@ entity VT_HISTORICAL_AUDIT_LOGS {
 13. go to srv folder > select service.cds and add the following.
 
 ```cds
+using VT_HISTORICAL_AUDIT_LOGS from '../db/schema.cds';
+```
+```cds
  @readonly
     entity VT_HISTORICAL_AUDIT_LOGS as 
-        projection on my.VT_HISTORICAL_AUDIT_LOGS;
+        projection on VT_HISTORICAL_AUDIT_LOGS;
 ```
 <br>![](/exercises/ex6/ex6.4/images/13_addsrv.png) 
 

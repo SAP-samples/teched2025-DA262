@@ -21,8 +21,10 @@ In this exercise, lets create a logic for the service with the help of Joule. We
 <br>__4.__ From the Open code editor-drop down, select __Application Logic__
 <br>![](/exercises/ex3/images/5_applicationlogicopen.png)
 
-<br>__5.__ Upon the initial object creation of the risk handling applicatin logic, let's use Joule assistant, to generate a more specific logic
-- In the Joule prompt, enter the below text preceded with the context  #srv/code/risks-logic.js  
+<br>__5.__ When you click on Application Logic, if the Joule panel is already open from a previous exercise, wait for it to reload until you see the text shown below, preceded by the context #srv/code/risks-logic.js.
+If the panel is not open, click the Joule icon on the left and enter the following command:
+/cap-app-logic #srv/code/risks-logic.js
+
 ![](/exercises/ex3/images/6_joule_context.png)
 ```
 if the impact of the current risk is greater than 10000 dollars set the criticality to 1 otherwise to 2

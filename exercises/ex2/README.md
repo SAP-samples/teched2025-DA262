@@ -98,12 +98,13 @@ service risk_Management_U00Srv {
 
 
 ```
- Generate sample data
+Generate sample data where impact should range from 1 to 20000
 ```
 - Choose or type __#db/schema.cds__ and then enter the above prompt.
 
 ![alt text](/exercises/ex2/images/11_select_variable.png)
 
+- Review the data before accepting.
 
 <br>__10.__  __Accept__ the generated sample data, and you can see 2 csv files in the project __test__ folder.
 

@@ -37,7 +37,7 @@ After completing these steps you will :
 
 ## Access to workspace 🚀
 
-👉 Click <a href="https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login" target="_blank">here</a>
+👉 Click <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">here</a>
  to start setting up your SAP Build Code workspace and begin the hands-on exercises.
 
 Continue to - [ Getting Started - Setup of your workspace ](../setup/README.md)

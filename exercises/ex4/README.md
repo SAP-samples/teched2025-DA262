@@ -78,8 +78,9 @@ In the following steps, we define the data model and service model relationship 
 ![alt text](/exercises/ex4/images/17_addproj.png)
 
 <br>__11.__ Under Projection definition on the right
+- if required, click on the maximize property sheet in the right corner to expand.
 - first select __"API_BUSINESS_PARTNER.A_BusinessPartner"__ as _key_ element of the associated entity
-- then __"un-check" all properties__, 
+- then __"un-check" __< all properties >__, 
 - and __select__ on the following columns/properties:
   - __BusinessPartner, FirstName__ and __LastName__
 - Save by clicking &#x2611;
@@ -113,20 +114,6 @@ module.exports = cds.service.impl(async function() {
 ```
 <br>__14__. Open the package.json file and replace the existing API_BUSINESS_PARTNER configuration with the JSON configuration provided below.
 
-```json
-      "API_BUSINESS_PARTNER": {
-          "kind": "odata-v2",
-          "model": "srv/external/API_BUSINESS_PARTNER",
-          "credentials": {
-            "url": "<URL>",
-             "headers": {
-                "APIKey": "<API_KEY>"
-            }
-          }
-        }
-
-```
--  __copy__ the below given __API Key__ and  the __SANDBOX_URL__
 ```
 "APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
 ```
@@ -174,6 +161,7 @@ cds watch
 
 ![alt text](/exercises/ex4/images/24_bpdata.png)
 
+- Return to your terminal and press Ctrl + C to stop the running watch process, then proceed to the next exercise.
 
 ## Summary 📝
 

@@ -38,13 +38,14 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 <br>__8.__  Click on the icon __Configure Page__ to edit the page's properties and settings. 
 <br>![](/exercises/ex5/images/7_editpagemap.png)
 
-<br>__9.__ In the columns list, delete the <strong>criticality</strong> column. SAP Fiori has the UI annotation of criticality which allows you to visually indicate if a value is negative, crtitical or positive via color-coding. There we dont need an additional column.
+<br>__9.__ In the columns list, delete the <strong>criticality</strong> column. SAP Fiori has the UI annotation of criticality which allows you to visually indicate if a value is negative, crtitical or positive via color-coding. There we dont need an additional column. Click on delete icon to delete the column
 <br>![](/exercises/ex5/images/8_delcrit.png)
 
 <br>__10.__ Select the column <strong>impact</strong> and on the right pane, scroll down to find the criticality property and set the value to criticality.Therefore __impact__ will now show the criticality threshold based on the risks.
+
 <br>![](/exercises/ex5/images/9_selcrit.png)
 
-<br>__11.__ Wait a few seconds until the new option labeled __Criticality Representation__ appears. Then, add the criticality representation with an icon—this will display an icon next to the value, visually indicating the risk level.
+<br>__11.__ Wait a few seconds until the new option labeled __Criticality Representation__ appears. Then, add the criticality representation with an icon, this will display an icon next to the value, visually indicating the risk level.
 <br>![](/exercises/ex5/images/10_criticon.png)
 
 <br>__12.__ Go back to the page map and Select the configure icon of object page section.
