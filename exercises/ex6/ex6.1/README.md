@@ -8,14 +8,20 @@ In this exercise, we will configure the __run configuration__ and set the databa
 1. Open a run configuration view
 
 - Click on __"Run configuration"-icon__ in the left-side activity bar
-- click on the project __"launch.json"__-icon
+
+<br>![](/exercises/ex6/ex6.1/images/14_runicon.png)
+
+- click on the project __'Run Risk_Management_U##'__ which will open the __"launch.json"__ on the right.
+
+<br>![](/exercises/ex6/ex6.1/images/15_click.png)
+
 - For Database, select __SAP HANA Cloud__. 
 - Then select the __HDI container__ which was created in the [Exercise 6 - Bind your application to an HDI Container ](exercises/ex6/)
 
 <br>![](/exercises/ex6/ex6.1/images/1_riskconfig.png)
 
 
-<br>__2.__ __Run the application__ for testing by _clicking_ on the __"Run"-icon__ as shown below. 
+<br>__2.__ __Run the application__ for testing by _clicking_ on the either of the __"Run"-icon__ as shown below. 
 
 <br>![](/exercises/ex6/ex6.1/images/3_runoptions.png)
 
@@ -25,7 +31,7 @@ In this exercise, we will configure the __run configuration__ and set the databa
 <br>![](/exercises/ex6/ex6.1/images/4_showapp.png)
 
 <br><br>
-## Exercise 7.2  Check the service details and explore the application
+## Exercise 6.1.1  Check the service details and explore the application
 
 <br>__4.__ You can now also explore the data that was generated from Business Partner API by clicking on service data details.   
 <br>![](/exercises/ex6/ex6.1/images/6_showservice.png)
@@ -41,6 +47,11 @@ In this exercise, we will configure the __run configuration__ and set the databa
 
 <br>__6.__ you can edit the entry and assign a business partner id into a certain risk.
 <br>![](/exercises/ex6/ex6.1/images/8_addbpid.png)
+
+<br>__7.__ Go back to your SAB Build Code, to your project & stop the application by clicking on the icon shown below.
+
+<br>![](/exercises/ex6/ex6.1/images/16_stop.png)
+
 
 
 ## Summary 📝

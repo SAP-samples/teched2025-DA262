@@ -51,7 +51,7 @@ using { API_BUSINESS_PARTNER } from '../srv/external/API_BUSINESS_PARTNER';
 ## Exercise 4.2 - Edit the Data Model and Service Definition with Business Partner
 In the following steps, we define the data model and service model relationship with the Business Partner API.
 
-<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below by clicking on __...__:
+<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below by right clicking on 'Risk_Management_UOO'
 ![](/exercises/ex4/images/11_opengm.png)
 
 <br>__7.__  Select the __"Risks" entity__ 

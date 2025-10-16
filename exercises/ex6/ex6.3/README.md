@@ -100,48 +100,45 @@ This will expose an OData Function as part of the service interface.
 
 9. Adding the function to the service definition alone doesn’t make it functional. While tables and views are managed by CAP’s built-in handlers, functions need to be explicitly implemented through a service handler exit.
 
-- Open the service.js file in the /srv folder. CAP uses the matching name to identify this file as the place to implement custom exit handlers for the services defined in service.cds. Replace it with the following code.
+- Open the service.js file in the /srv folder. CAP uses the matching name to identify this file as the place to implement custom exit handlers for the services defined in service.cds. Replace it entirely with the following code.
 
+>⚠️ __Disclaimer:__
+Any code snippets provided in this exercise are based on the namespace risk_management_u00.
+Please remember to replace this namespace with your own, following the format risk_management_u<##>, where ## is the unique number assigned to you at the beginning of the exercise.
+Failing to update the namespace may lead to build or deployment issues.
 
 ```javascript
 const cds = require('@sap/cds');
 const risks_Logic = require('./code/risks-logic');
 
 module.exports = class risk_Management_U00Srv extends cds.ApplicationService {
-  async init() {
-    const db = await cds.connect.to('db');
+    async init() {
+        const db = await cds.connect.to('db');
 
-    // After READ hook for Risks
-    this.after('READ', 'Risks', async (results, req) => {
-      const risks_Logic = require(path.join(__dirname, 'code/risks-logic'));
-      await risks_Logic(results, req);
-    });
+        // After READ hook for Risks
+        this.after('READ', 'Risks', async (results, req) => {
+            const risks_Logic = require(path.join(__dirname, 'code/risks-logic'));
+            await risks_Logic(results, req);
+        });
 
-   // GET handler for calculateRiskScore
-    this.on('calculateRiskScore', async (req) => {
-        try {
-            const result = await db.run(`
-                <YOUR PROCEDURE CALL>
-            `);
-            return result;  // return the first table
-        } catch (err) {
-            console.error('Error calling HANA procedure:', err);
-            req.error(500, 'Failed to calculate risk scores');
-        }
-    });
+        // GET handler for calculateRiskScore
+        this.on('calculateRiskScore', async (req) => {
+            try {
+                const result = await db.run(`
+CALL "calculateRiskScore"( ?)            `);
+                return result;
+            } catch (err) {
+                console.error('Error calling HANA procedure:', err);
+                req.error(500, 'Failed to calculate risk scores');
+            }
+        });
 
-    return super.init();
-  }
+        return super.init();
+    }
 };
 
+
 ```
-> __ℹ️ NOTE__: Use the CALL statement generated in Database Explorer to replace the one currently in your code.
-
-- Navigate back to SAP HANA Database Explorer, copy the CALL statement it generated, and insert it into your script. 
-
-<br>![](/exercises/ex6/ex6.3/images/11_copycall.png) 
-
-- Remove the __RESULT => ?__ and insert __?__
 
 - Final version of __service.js__ should look as follows:
 
@@ -172,7 +169,7 @@ Here, @path refers to the service path defined in your service.cds file.
 
 <br>![](/exercises/ex6/ex6.2/images/32_run.png) 
 
-- Go to your http request, place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
+- Go back to your project and to your http request, place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
 <br>![](/exercises/ex6/ex6.3/images/15_run.png) 
 
 ## Summary 📝

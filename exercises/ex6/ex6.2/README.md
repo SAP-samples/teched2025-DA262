@@ -35,9 +35,9 @@ In this exercise, you will extend a SAP CAP application by adding SAP HANA Cloud
 
 <br>![](/exercises/ex6/ex6.2/images/7_addds.png) 
 
-7. Type in RISK and then select the table you created earlier via CDS called __RISK_MANAGEMENT_U00_RISKS 
+7. Type in RISK and then select the table you created earlier via CDS called __RISK_MANAGEMENT_U00_RISKS__ 
 
-<br>![](/exercises/ex6/ex6.2/images/29_addrisk.png) 
+<br>![](/exercises/ex6/ex6.2/images/28_addrisk.png) 
 
 - Repeat the process to add the __RISK_MANAGEMENT_U00_MITIGATIONS__ and press Finish. 
 
@@ -62,6 +62,20 @@ In this exercise, you will extend a SAP CAP application by adding SAP HANA Cloud
 <br>![](/exercises/ex6/ex6.2/images/11_setcard.png) 
 
 11. In the Mapping tab, add the output columns as shown below by dragging them from the left panel to the right. You can select and drag multiple columns at once to speed up the process.
+
+- Add the following columns: 
+
+<strong>RISK_MANAGEMENT_U##_RISKS</strong>
+- TITLE
+- DESCRIPTION 
+- IMPACT
+- CRITICALITY 
+- STATUS 
+
+<strong>RISK_MANAGEMENT_U##_MITIGATIONS</strong>
+- TITLE  
+- DESCRIPTION
+- COUNTER
 
 <br>![](/exercises/ex6/ex6.2/images/30_addcols.png) 
 
@@ -135,6 +149,11 @@ cd ..
 
 <br>![](/exercises/ex6/ex6.2/images/23_copy.png) 
 
+>⚠️ __Disclaimer:__
+Any code snippets provided in this exercise are based on the namespace risk_management_u00.
+Please remember to replace this namespace with your own, following the format risk_management_u<##>, where ## is the unique number assigned to you at the beginning of the exercise.
+Failing to update the namespace may lead to build or deployment issues.
+
 ```cds
 // namespace Risk_Management_U00;
 
@@ -191,7 +210,10 @@ key     TITLE: String(100)  @title: 'TITLE: TITLE' ;
 21. Now open the service.cds file from the /srv folder. Add this new Calculation View based entity to the CAP service as read-only.
 
 ```cds
+    using V_RISKS from '../db/schema.cds';
+```
 
+```
     @readonly
     entity V_Risks  as projection on V_RISKS;
 ```

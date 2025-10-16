@@ -74,7 +74,7 @@ It acts as a bridge, allowing users to easily access and query external data sto
 }
 ```
 
-7. Now lets create a __synonym__ ,  go to src folder and create a new folder called synonyms and create a new file called __RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS__ and file should end with hdbsynonym. 
+7. Now lets create a __synonym__ ,  go to src folder and create a new folder called synonyms and create a new file called __VT_HISTORICAL_AUDIT_LOGS__ and file should end with hdbsynonym. 
 
 - Alternatively, you can use view > commonad pallette > create 
 
@@ -86,7 +86,7 @@ It acts as a bridge, allowing users to easily access and query external data sto
 
 ```json
 {
-  "RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS": {
+  "VT_HISTORICAL_AUDIT_LOGS": {
     "target": {
       "object": "VT_HISTORICAL_AUDIT_LOGS",
       "schema" : "AC230193U00"
@@ -103,11 +103,11 @@ It acts as a bridge, allowing users to easily access and query external data sto
 
 <br>![](/exercises/ex6/ex6.4/images/10_openhdi.png) 
 
-11. Click on Synonyms,  right click on the __RISK_MANAGEMENT_U00_VT_HISTORICAL_AUDIT_LOGS__ and click on open data to view the data.
+11. Click on Synonyms,  right click on the __VT_HISTORICAL_AUDIT_LOGS__ and click on open data to view the data.
 
 <br>![](/exercises/ex6/ex6.4/images/11_opensyndata.png) 
 
-12. Now, go back to your SAP Build Code & to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model. 
+12. Now, go back to your SAP Build Code & to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model outside the context { }. 
 
 
 ```cds
@@ -130,12 +130,23 @@ using VT_HISTORICAL_AUDIT_LOGS from '../db/schema.cds';
 ```
 ```cds
  @readonly
-    entity VT_HISTORICAL_AUDIT_LOGS as 
+    entity VT_Historical_Audit_Logs as 
         projection on VT_HISTORICAL_AUDIT_LOGS;
 ```
 <br>![](/exercises/ex6/ex6.4/images/13_addsrv.png) 
 
-14. Run the application and access your CAP service layer to view the data that accessed from data lake files.
+14. Run the following command to build.
+
+```
+	cds build --production
+```
+
+15. Although we didn’t add any new database artifacts to the project, the addition of an entity to the service layer causes new views to be generated within SAP HANA. Therefore we need to deploy to the database using the SAP HANA Projects view before we can test.
+
+<br>![](/exercises/ex6/ex6.4/images/17_deploy.png) 
+
+
+16. Run the application by clicking on the 'Run' icon at right corner and access your CAP service layer to view the data that accessed from data lake files.
 
 <br>![](/exercises/ex6/ex6.4/images/15_view.png) 
 <br>![](/exercises/ex6/ex6.4/images/16_odata.png) 
@@ -145,9 +156,15 @@ using VT_HISTORICAL_AUDIT_LOGS from '../db/schema.cds';
 
 In this exercise, you extended an existing CAP-based Risk Management application to include historical data stored in SAP HANA Cloud Data Lake, showcasing how to enrich applications without violating clean core principles.
 
-Thank you all for participating in today's hands-on session! Your effort, engagement, and willingness to learn are truly appreciated. 🙏 We hope you gained valuable insights and skills that you can apply moving forward. 👩‍💻👨‍💻
+
+----------------------------------------------------------
+🎉 __Congratulations__! You’ve reached the end of this hands-on session.
+
+You’ve successfully built and extended your CAP-based Risk Management application, integrated HANA Cloud artifacts, and explored how clean core principles come to life in practice.
+
+👏 __Great work__ — this concludes the hands-on exercise!
 
 
-
+<br>![](/exercises/ex6/ex6.4/images/teched.jpg) 
 
 
