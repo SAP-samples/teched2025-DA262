@@ -2,7 +2,7 @@
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
 
-    - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀
+  - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀
 
 <br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)
 
@@ -16,16 +16,16 @@
 <br>![](/exercises/dev-space-config/images/3-create-new-dev-space.png)
 
 4. Specify the dev space name and select extensions:
-- _Name_ the dev space: __TechEdDA262_U<##>__
+- Name the dev space: __TechEdDA262_U<##>__
 > In U<##>, where ## represents the unique number assigned to you at the start of the exercise (for example, 01).
 - What kind of application you want to create: 
     - Select __Full Stack Application Using Productivity Tools__
 - _Select_ 4 SAP HANA extensions
-  - __SAP HANA Database explorer__ ( added by default)
+  - __SAP HANA Database explorer__ (added by default)
   - __SAP HANA tools__
   - __SAP HANA Performance tools__
   - __SAP HANA Calculation View Editor__
-- _Apply by clicking_ __"Create Dev Space"__
+- _Apply by clicking __Create Dev Space__
 
 <br>![](/exercises/dev-space-config/images/4-create-dev-space.png)
 
@@ -33,5 +33,11 @@
 Now you can go back to the SAP Build Code Lobby and create a Full-Stack Application project in the next excercise.
 
 <br>![](/exercises/dev-space-config/images/5-space-starting.png)
+
+6. Go back to your <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a> to continue with the next exercise.
+
+## Summary 📝
+
+In this exercise, we configured a Dev Space in SAP Business Application Studio with SAP HANA extensions to enable SAP HANA database development. Verified tools and connectivity for creating and managing HANA artifacts.
 
 Continue to - [Exercise 1 - Create a Full-Stack Project in SAP Build Code](../ex1/README.md)

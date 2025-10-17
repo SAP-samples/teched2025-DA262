@@ -4,6 +4,8 @@ In this exercise, you will extend your application with the consumption of an ex
 To facilitate that, we consume the API definition from the [SAP Business Accelerator Hub](https://api.sap.com/) and are able to connect to a SAP provided sandbox instance of S/4HANA Cloud Public Edition.  
 By consuming the Business Partner API definition from SAP API Business Accelerator Hub, we ensure a system compliant API integration for the later runtime connection of our Risk Management Application with the real __clean core__ __"S/4HANA Cloud Public Edition"__-source system. 
 
+In our Risk Management Application, we are using the Business Partner data to clearly associate each risk and mitigation with its responsible stakeholder, ensuring accountability and traceability.
+
 <br>![](/exercises/ex4/images/1_apilogin.png)
 
 
@@ -12,7 +14,9 @@ By consuming the Business Partner API definition from SAP API Business Accelerat
 > __ℹ️ NOTE__: the Application-to-Cross Application (A2X) service category objects is targeted to facilitate the exchange of business information between a system and an unspecified client [service categories in APIs on SAP Business Accelerator Hub documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/8308e6d301d54584a33cd04a9861bc52/1e60f14bdc224c2c975c8fa8bcfd7f3f.html?locale=en-US).
 
 <br>__1.__ Go to the folder <a href="../business-partner/API_BUSINESS_PARTNER.edmx" target="_blank">business-partner</a>
- and download the __API_BUSINESS_PARTNER.edmx__ file.
+and save the API_BUSINESS_PARTNER.edmx file to your local system.
+
+![alt text](/exercises/ex4/images/26_downloadbp.png)
 
 - After downloading, upload the __.edmx__ file to the root folder of your project. To access the __upload__ option, click on an empty area within your project structure.
 ![alt text](/exercises/ex4/images/2_upload.png)
@@ -20,14 +24,14 @@ By consuming the Business Partner API definition from SAP API Business Accelerat
 
 <br>__2.__ Now, import the Business Partner API specification-file 
 - Run the cds command in a project terminal. 
-- To open Click on the icon as shown below, select terminal > new terminal
+- To open Click on the icon as shown below, select __Terminal > New Terminal__
 <br>![](/exercises/ex4/images/4_terminal.png)
 ```cds
 cds import API_BUSINESS_PARTNER.edmx
 ```
 <br>![](/exercises/ex4/images/5_cdsimport.png)  
 
-<br>__3.__ The API_BUSINESS_PARTNER.edmx has been imported to the project folder __"srv/external"__
+<br>__3.__ The API_BUSINESS_PARTNER.edmx has been imported to the project folder '__srv/external__'
 - In addition, it also generated the API_BUSINESS_PARTNER.csn file. CSN-files are used by the CDS framework, as a notation for compact representations of CDS models — tailored to serve as an optimized format to share and interpret models with minimal footprint and dependencies.
 
 ![alt text](/exercises/ex4/images/6_projstr.png)
@@ -56,13 +60,15 @@ In the following steps, we define the data model and service model relationship 
 
 <br>__7.__  Select the __"Risks" entity__ 
 - and __click__ on __"Add relationship"__, 
-- then click into the empty space to open the next dialog
+- then click into the empty space which will open the next dialog
 ![alt text](/exercises/ex4/images/12_addrel.png)
 
 <br>__8.__ Once the dialog box opens
-- look for the __target entity-relationship__ shown in the image below 
-  - Type: __Association__ and Cardinality: __To-One__
-- and _rename_ the a_BusinessPartner to __BusinessPartner__.
+- Type: __Association__ and Cardinality: __To-One__
+- look for the target entity : __API_BUSINESS_PARTNER.A_BusinessPartner__
+- Name a_BusinessPartner appears automatically, Rename the a_BusinessPartner to __BusinessPartner__.
+
+![alt text](/exercises/ex4/images/25_dia.png)
 
 ![alt text](/exercises/ex4/images/13_dia.png)
 
@@ -79,8 +85,8 @@ In the following steps, we define the data model and service model relationship 
 
 <br>__11.__ Under Projection definition on the right
 - if required, click on the maximize property sheet in the right corner to expand.
-- first select __"API_BUSINESS_PARTNER.A_BusinessPartner"__ as _key_ element of the associated entity
-- then __"un-check" __< all properties >__, 
+- first select __"API_BUSINESS_PARTNER.A_BusinessPartner"__ as key element of the associated entity
+- then "un-check" __< all properties >__, 
 - and __select__ on the following columns/properties:
   - __BusinessPartner, FirstName__ and __LastName__
 - Save by clicking &#x2611;
@@ -112,15 +118,7 @@ module.exports = cds.service.impl(async function() {
     });
 });
 ```
-<br>__14__. Open the package.json file and replace the existing API_BUSINESS_PARTNER configuration with the JSON configuration provided below.
-
-```
-"APIKey": "bevWzLBHsR00qBdYwhhbVttRIjhiA0rY"
-```
-```
-https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
-```
-<br>__15.__ Your __package.json__ should look as follows:
+<br>__14__. Open your project’s package.json file, scroll to the end to locate the __'API_BUSINESS_PARTNER'__ section, and replace it with the content below.
 
 ```json
       "API_BUSINESS_PARTNER": {
@@ -139,7 +137,7 @@ https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
 
 <br>__16.__ Save and close the files.
 
-You've now created a custom handler for your service. This time it called on for the READ event.
+You've now created a custom handler for your service. 
 
 The handler is invoked when your BusinessPartner service is called for a READ, so whenever there’s a request for business partner data, this handler is called. It ensures the request for the business partner is directed to the external business partner service. 
 
@@ -157,7 +155,7 @@ cds watch
 
 ![alt text](/exercises/ex4/images/23_preview.png)
 
-- In the preview, select A_BusinessPartner to view the available data.
+- In the preview, select __'A_BusinessPartner'__ to view the data, which comes from S/4HANA in the SAP Business Accelerator Hub sandbox.
 
 ![alt text](/exercises/ex4/images/24_bpdata.png)
 

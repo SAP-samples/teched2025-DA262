@@ -9,8 +9,8 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 <br>__2.__ Enter the details for the UI application, 
 - Display name: __RiskApplication__
 - Application name: __riskapplication__
-- select your project's __service-object name__ _( example :risk_Management_U00Srv )_ as a data source
-- then _click_ __"Next"__
+- select your project's __service-object name__ ( example : __'risk_Management_U00Srv'__ ) as a data source
+- then click __"Next"__
 <br>![](/exercises/ex5/images/2_ui_config.png)
 
 <br>__3.__ Select __"UI application Type"__
@@ -20,7 +20,7 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 
 <br>__4.__ Select the specific __"UI application Template"__
 - Click select __"List Report Page"__
-- then _click_ __"Next"__
+- then click __"Next"__
 <br>![](/exercises/ex5/images/4_ui_template.png)
 
 <br>__5.__ Select the __"Data Objects"__
@@ -32,7 +32,12 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 - You've now created the List report UI to your application.
 <br><br>  
 ## Exercise 5.2 - Now modify the UI  ✏️🖼️
-<br>__7.__ __"Page Map"__ is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
+
+In this section, We will customise the Fiori app by removing the Criticality field and instead deriving it from the Impact using the logic implemented in Exercise 3. Additionally, we will represent the calculated criticality with an icon and add a Business Partner field to assign the appropriate stakeholder to each risk.
+
+<br>__7.__ Once all the necessary libraries have been added to your project, the page map will open.
+
+>💡 __Insight Corner__: Page Map is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
 
 - [__Optional__]: Incase the page map doesnt open on its own, you can navigate to it by right clicking on the newly created UI module which is under the UI applications.
 <br>![](/exercises/ex5/images/6_pagemap.png)

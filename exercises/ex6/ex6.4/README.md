@@ -78,8 +78,6 @@ It acts as a bridge, allowing users to easily access and query external data sto
 
 - Alternatively, you can use view > commonad pallette > create 
 
-> __ℹ️ NOTE__: Replace the U00 with your U## number.
-
 <br>![](/exercises/ex6/ex6.4/images/8_syn.png) 
 
 8. Right click on the newly created file and open with text editor. Paste the following json.
@@ -107,7 +105,7 @@ It acts as a bridge, allowing users to easily access and query external data sto
 
 <br>![](/exercises/ex6/ex6.4/images/11_opensyndata.png) 
 
-12. Now, go back to your SAP Build Code & to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model outside the context { }. 
+12. Now, go back to your CAP Project, edit your schema.cds under src folder ( src>schema.cds). Add the following to the end of your current model outside the context { }. 
 
 
 ```cds

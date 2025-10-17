@@ -4,6 +4,8 @@ In this exercise, you will extend a SAP CAP application by adding SAP HANA Cloud
 
 ## Exercise 6.2.1 -  Create Calculation View and Expose via CAP (SAP HANA Cloud) 
 
+> __⚠️ NOTE__: In case of slowness or performance degradation, please refresh your browser.
+
 >💡 __Insight corner__: Calculation Views and other HANA native artifacts allow you to leverage HANA specific features and optimizations that might not otherwise be available at the abstraction layers within the SAP Cloud Application Programming Model. Calculation Views are especially good at aggregation and filtering of large datasets.
 
 1. Create a new Calculation View via View > Command Pallette and then type __SAP HANA: Create SAP HANA Database Artifact__ command pallete entry
@@ -114,17 +116,19 @@ In this exercise, you will extend a SAP CAP application by adding SAP HANA Cloud
 
 We now want to expose our Calculation View to the Cloud Application Programming model by creating a “proxy” entity for the view in the CDS data model.
 
-17. Return to the __SAP Build Code__ and open _schema.cds_.
+17. Return to the project and open _'_schema.cds_'_.
 
 <br>![](/exercises/ex6/ex6.2/images/21_schemadef.png) 
 
-18. We need to add a matching entity definition for the Calculation View. This means redefining all the column names and data types / lengths. Doing so manually would be error prone, but the __hana-cli__ has a utility that will help. Open a new terminal. 
+18. We need to add a matching entity definition for the Calculation View. This means redefining all the column names and data types / lengths. Doing so manually would be error prone, but the '__hana-cli__' has a utility that will help. Open a new terminal. 
 
 19. We need our proxy entity to be created without the namespace in our current _schema.cds_. Therefore comment out the namespace line and add all the existing content except the __using ...__ line in a new context for __Risk_Management_U00__
 
 <br>![](/exercises/ex6/ex6.2/images/31_modifyCV.png) 
 
-- Install the __hana-cli__ with the following command:
+>💡 __Insight Corner__: HANA CLI is a command-line tool for interacting with SAP HANA databases, allowing you to manage data, execute SQL, and deploy artifacts efficiently from the terminal.
+
+- Install the '__hana-cli__' with the following command:
 ```
 npm install -g hana-cli
 ```
@@ -226,7 +230,7 @@ cds build --production
 ```
 <br>![](/exercises/ex6/ex6.2/images/25_cdsbuild.png) 
 
-23. Although we didn’t add any new database artifacts to the project, the addition of an entity to the service layer causes new views to be generated within SAP HANA. Therefore we need to deploy to the database using the SAP HANA Projects view before we can test.
+23. Although we didn’t add any new database artifacts to the project, the addition of an entity to the service layer causes new HANA SQL views to be generated within SAP HANA. Therefore we need to deploy to the database using the SAP HANA Projects view before we can test.
 
 <br>![](/exercises/ex6/ex6.2/images/17_deploy.png) 
 

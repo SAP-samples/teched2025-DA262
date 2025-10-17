@@ -48,7 +48,7 @@ In this exercise, we will configure the __run configuration__ and set the databa
 <br>__6.__ you can edit the entry and assign a business partner id into a certain risk.
 <br>![](/exercises/ex6/ex6.1/images/8_addbpid.png)
 
-<br>__7.__ Go back to your SAB Build Code, to your project & stop the application by clicking on the icon shown below.
+<br>__7.__ Go back to your project & stop the application by clicking on the icon shown below.
 
 <br>![](/exercises/ex6/ex6.1/images/16_stop.png)
 

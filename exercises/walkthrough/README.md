@@ -1,6 +1,6 @@
 # Walkthrough of the Exercise 💻
 
-In this hands-on session, you will build a Risk Management application on SAP BTP that consumes Business Partner data from an S/4HANA system, adhering to SAP Clean Core principles. You’ll use SAP Build Code, SAP HANA Cloud, and SAP CAP (Cloud Application Programming) model to demonstrate how to extend core systems without modifications.
+In this hands-on session, you will build a Risk Management application on SAP Business Technology Platform (BTP) that consumes Business Partner data from an S/4HANA system, adhering to SAP Clean Core principles. You’ll use SAP Build Code, SAP HANA Cloud, and SAP Cloud Application Programming (CAP) model to demonstrate how to extend core systems without modifications.
 
 This session is intended for developers and architects interested in extensibility, side-by-side extensions, and modern cloud-native development on SAP BTP.
 
@@ -12,7 +12,7 @@ After completing these steps you will :
 
 - Create a full-stack CAP application using SAP Build Code.
 
-- Model data and generate services with Joule.
+- Model data and generate services with SAP Joule.
 
 - Implement custom business logic in your CAP service.
 
@@ -20,7 +20,7 @@ After completing these steps you will :
 
 - Build a Fiori Elements UI for your application.
 
-- Bind your app to an HDI Container and explore data in SAP HANA Database Explorer.
+- Bind your app to an SAP HANA Deployment Infrastructure (HDI) Container and explore data in SAP HANA Database Explorer.
 
 - Add SAP HANA Cloud native artifacts to your CAP project.
 
@@ -36,8 +36,5 @@ After completing these steps you will :
 
 
 ## Access to workspace 🚀
-
-👉 Click <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">here</a>
- to start setting up your SAP Build Code workspace and begin the hands-on exercises.
 
 Continue to - [ Getting Started - Setup of your workspace ](../setup/README.md)

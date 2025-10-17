@@ -2,8 +2,8 @@
 
 In this exercise, lets create a logic for the service with the help of Joule. We have our risks and mitigation as our entities, lets create a logic where if the impact of risk is greather than 10000, set the criticality of that risk to high or set it to warning.
 
-<br>__1.__ Go to your __"Storyboard"__, 
-- under the services, _select_ __"Open in Graphical Modeler"__, by click on __...__ 
+<br>__1.__ Go to your __Storyboard__, 
+- under the services, _select_ __Open in Graphical Modeler__, by right clicking on the Service name. 
 ![](/exercises/ex3/images/1_open_gm.png)  
 
 - choose the risk entity and select add logic.
@@ -21,9 +21,13 @@ In this exercise, lets create a logic for the service with the help of Joule. We
 <br>__4.__ From the Open code editor-drop down, select __Application Logic__
 <br>![](/exercises/ex3/images/5_applicationlogicopen.png)
 
-<br>__5.__ When you click on Application Logic, if the Joule panel is already open from a previous exercise, wait for it to reload until you see the text shown below, preceded by the context #srv/code/risks-logic.js.
+<br>__5.__ When you click on Application Logic, if the Joule panel is already open from a previous exercise, it should reload until you see the text shown below, preceded by the context __'#srv/code/risks-logic.js'__.
 If the panel is not open, click the Joule icon on the left and enter the following command:
+__'/cap-app-logic #srv/code/risks-logic.js'__
+
+```
 /cap-app-logic #srv/code/risks-logic.js
+```
 
 ![](/exercises/ex3/images/6_joule_context.png)
 ```
@@ -37,7 +41,8 @@ if the impact of the current risk is greater than 10000 dollars set the critical
 
 <br>![](/exercises/ex3/images/8_joulesuggestion.png)
 
-<br>__7.__ The code in the ./srv/code/risks-logic.js-file now looks as follows :
+<br>__7.__ [__REFERENCE__]The code in the ./srv/code/risks-logic.js file should now resemble the generated version below:
+
 ```javascript
 
 module.exports = async function(results, request) {
@@ -57,6 +62,11 @@ module.exports = async function(results, request) {
     }
 };
 ```
+
+__8.__ The results of this application logic will be reflected in the Fiori app as shown below. We will review this after completing __Exercise 6.__
+
+<br>![](/exercises/ex6/ex6.1/images/7_riskapp.png)
+
 
 ## Summary 📝
 
