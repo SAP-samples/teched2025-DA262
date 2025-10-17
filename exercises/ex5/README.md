@@ -32,13 +32,15 @@ In this exercise, let's add a simple Fiori UI to your risk management applicatio
 - You've now created the List report UI to your application.
 <br><br>  
 ## Exercise 5.2 - Now modify the UI  ✏️🖼️
-<br>__7.__ Click on __...__ & click on __Open in Page Map__ under the UI Applications. __"Page Map"__ is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
+<br>__7.__ __"Page Map"__ is a visual tool within the SAP Fiori Tools that provides a visual representation of an application’s pages, navigations, and service entities that it uses.
+
+- [__Optional__]: Incase the page map doesnt open on its own, you can navigate to it by right clicking on the newly created UI module which is under the UI applications.
 <br>![](/exercises/ex5/images/6_pagemap.png)
 
 <br>__8.__  Click on the icon __Configure Page__ to edit the page's properties and settings. 
 <br>![](/exercises/ex5/images/7_editpagemap.png)
 
-<br>__9.__ In the columns list, delete the <strong>criticality</strong> column. SAP Fiori has the UI annotation of criticality which allows you to visually indicate if a value is negative, crtitical or positive via color-coding. There we dont need an additional column. Click on delete icon to delete the column
+<br>__9.__ In the columns list, delete the <strong>criticality</strong> column. SAP Fiori has the UI annotation of criticality which allows you to visually indicate if a value is negative, critical or positive via color-coding. Therefore we dont need an additional column. Click on delete icon to delete the column
 <br>![](/exercises/ex5/images/8_delcrit.png)
 
 <br>__10.__ Select the column <strong>impact</strong> and on the right pane, scroll down to find the criticality property and set the value to criticality.Therefore __impact__ will now show the criticality threshold based on the risks.

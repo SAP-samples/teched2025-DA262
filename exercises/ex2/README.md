@@ -6,7 +6,7 @@ In this exercise, we will create a risk management application, helps organizati
 
 <br>__1.__ _Open_ your project
 -  __Click__ on __"Guide Center"__-icon in the left-side activity bar 
--  and _select_ __"Generate AI-Powered Development"__
+-  and _select_ __"Generative AI-Powered Development"__
 <br>![](/exercises/ex2/images/1_guidecenter.png)
 
 <br>__2.__ Within the __"Generate AI-Powered Development"__ view
@@ -17,7 +17,7 @@ In this exercise, we will create a risk management application, helps organizati
 Also, ensure that the command __/cap-gen-model__ is available; if it isn’t, type it in manually.
 <br>![](/exercises/ex2/images/3_joule.png)
 
-<br>__4.__ Next, __copy__ the below text to your Joule assistant to generate the data model and services.
+<br>__4.__ Next, __copy__ the below text to your Joule assistant to generate the data model and services and click on __Go__.
 ```
 Create a risk management app with risks and mitigations. Each risk may refer to one or more mitigations. Add realistic properties to each entity, risks should include a property impact and criticality which should be an integer. Impacts should be in range of 1 to 20000 dollars. Mitigation should include a counter
 ```

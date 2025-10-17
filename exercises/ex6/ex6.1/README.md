@@ -34,11 +34,11 @@ In this exercise, we will configure the __run configuration__ and set the databa
 ## Exercise 6.1.1  Check the service details and explore the application
 
 <br>__4.__ You can now also explore the data that was generated from Business Partner API by clicking on service data details.   
-<br>![](/exercises/ex6/ex6.1/images/6_showservice.png)
+<br>![](/exercises/ex6/ex6.1/images/5_showservice.png)
 <br>![](/exercises/ex6/ex6.1/images/6_showodata.png)
 
 
-<br>__6.__ Click on RiskApplication and click on go which shows the data.
+<br>__5.__ Click on RiskApplication and click on go which shows the data.
 
 <br>![](/exercises/ex6/ex6.1/images/11_clickriskapp.png)
 

@@ -78,7 +78,7 @@ END
 
 <br>![](/exercises/ex6/ex6.3/images/8_proccall.png) 
 
-8. Now we want to add this Procedure to the CAP service as a __action__. Edit __/srv/service.cds__.
+8. Now we want to add this Procedure to the CAP service as an __action__. Edit __/srv/service.cds__.
 
 - Add the below action snippet in to the service definition.
 

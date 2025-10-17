@@ -2,7 +2,7 @@
 
 In this exercise, you will extend your application with the consumption of an external Business Partner service, to be connected to a S/4HANA Cloud Public Edition instance.
 To facilitate that, we consume the API definition from the [SAP Business Accelerator Hub](https://api.sap.com/) and are able to connect to a SAP provided sandbox instance of S/4HANA Cloud Public Edition.  
-By consuming the Business Partner API definition from SAP API Business Accerlator Hub, we ensure a system compliant API integration for the later runtime connection of our Risk Management Application with the real __clean core__ __"S/4HANA Cloud Public Edition"__-source system. 
+By consuming the Business Partner API definition from SAP API Business Accelerator Hub, we ensure a system compliant API integration for the later runtime connection of our Risk Management Application with the real __clean core__ __"S/4HANA Cloud Public Edition"__-source system. 
 
 <br>![](/exercises/ex4/images/1_apilogin.png)
 
@@ -51,7 +51,7 @@ using { API_BUSINESS_PARTNER } from '../srv/external/API_BUSINESS_PARTNER';
 ## Exercise 4.2 - Edit the Data Model and Service Definition with Business Partner
 In the following steps, we define the data model and service model relationship with the Business Partner API.
 
-<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below by right clicking on 'Risk_Management_UOO'
+<br>__6.__ From your  __data model__ in the __Storyboard__  _select_ __"Open in Graphical Modeler"__ as shown below by right clicking on 'Risk_Management_U##'
 ![](/exercises/ex4/images/11_opengm.png)
 
 <br>__7.__  Select the __"Risks" entity__ 
@@ -69,7 +69,7 @@ In the following steps, we define the data model and service model relationship 
 <br>__9.__ Now the data model would look as follows :
 ![alt text](/exercises/ex4/images/14_dm.png)
 
-<br>__10.__ Go back to your __Storyboard__,  under __service__, select __"Open in Graphical Modeler"__ as shown below. 
+<br>__10.__ Go back to your __Storyboard__,  under __service__, select __"Open in Graphical Modeler"__ by right clicking on the service model as shown below. 
 - click on __Projection__ and add it to an empty space.
 
 ![alt text](/exercises/ex4/images/15_openservice.png)
