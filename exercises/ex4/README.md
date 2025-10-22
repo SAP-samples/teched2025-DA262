@@ -161,6 +161,8 @@ cds watch
 
 - Return to your terminal and press Ctrl + C to stop the running watch process, then proceed to the next exercise.
 
+- Close all open tabs before proceeding to the next exercise.
+
 ## Summary 📝
 
 You have now successfully extended the CAP service with the consumption of an external Business Partner Service

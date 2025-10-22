@@ -32,7 +32,7 @@ After completing these steps you will :
 
 ## Architecture Diagram 🎨
 
-<br>![](/exercises/walkthrough/images/DA262.png)
+<br>![](/exercises/walkthrough/images/DA262-1.png)
 
 
 ## Access to workspace 🚀

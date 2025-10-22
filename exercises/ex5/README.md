@@ -74,7 +74,7 @@ In this section, We will customise the Fiori app by removing the Criticality fie
 
 <br>![](/exercises/ex5/images/16_storyboardfinal.png)
 
-
+- Close all open tabs before proceeding to the next exercise.
 
 ## Summary  📝
 

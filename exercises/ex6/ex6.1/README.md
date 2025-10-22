@@ -52,7 +52,7 @@ In this exercise, we will configure the __run configuration__ and set the databa
 
 <br>![](/exercises/ex6/ex6.1/images/16_stop.png)
 
-
+- Close all open tabs before proceeding to the next exercise.
 
 ## Summary 📝
 

@@ -19,7 +19,9 @@ The necessary privileges have been granted to this role to enable the required o
 
 <br>![](/exercises/ex6/ex6.4/images/2_vt.png) 
 
-4. A User-Provided Service Instance named __UPS_DA262__ has been created.
+4. A User-Provided Service instance named UPS_DA262 has been created in the CloudFoundry space AC_HANACLOUD."
+
+<br>![](/exercises/ex6/ex6.4/images/18_ups.png) 
 
 >💡 __Insight Corner__: The User-Provided Service (UPS) holds the schema details that define how virtual tables connect to the Data Lake files.
 It acts as a bridge, allowing users to easily access and query external data stored in the Data Lake directly from the database environment.
@@ -32,6 +34,8 @@ It acts as a bridge, allowing users to easily access and query external data sto
 <br>![](/exercises/ex6/ex6.4/images/3_addups.png) 
 
 2. Click on the drop down for 'Select connection type' and choose 'Existing user-provided service instance' & select __UPS_DA262__.
+
+> __ℹ️ NOTE__: If you don’t see the ‘UPS_DA262’ result, please close the ‘Add Database Connection’ tab and reopen it.
 
 <br>![](/exercises/ex6/ex6.4/images/4_selectups.png) 
 

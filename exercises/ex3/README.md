@@ -67,6 +67,8 @@ __8.__ The results of this application logic will be reflected in the Fiori app 
 
 <br>![](/exercises/ex6/ex6.1/images/7_riskapp.png)
 
+- Close all open tabs before proceeding to the next exercise.
+
 
 ## Summary 📝
 

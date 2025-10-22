@@ -152,6 +152,8 @@ CALL "calculateRiskScore"( ?)            `);
 
 - Write the post request inside the newly created file i.e __calculateRiskScore.http__
 
+ > Replace the U00 with your U## which represents the unique number assigned to you at the start of the exercise (for example, 01 or 39)
+
 ```http
 POST http://localhost:4004/service/risk_Management_U00/calculateRiskScore
 Content-Type: application/json
@@ -171,6 +173,8 @@ Here, @path refers to the service path defined in your service.cds file.
 
 - Go back to your project and to your http request, place the cursor on the first line of the request, click “Send Request” above the line (or right-click → Send Request), and the response will appear in a panel on right with the JSON output from your HANA procedure.
 <br>![](/exercises/ex6/ex6.3/images/15_run.png) 
+
+- Close all open tabs before proceeding to the next exercise.
 
 ## Summary 📝
 

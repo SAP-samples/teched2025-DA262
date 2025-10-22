@@ -144,6 +144,8 @@ In order to add the data to the target HDI container,
 
 ![alt text](/exercises/ex6/images/29_riskdata.png)
 
+- Close all open tabs before proceeding to the next exercise.
+
 ## Summary  📝
 
 You've now created a new HDI container and bound to your CAP Project. You can deploy the project to your SAP HANA Cloud instance and view the data in SAP HANA database explorer.
