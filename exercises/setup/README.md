@@ -13,8 +13,8 @@ In this exercise, Please follow the instructions below to log into your SAP Buil
 2. Enter the credentials, Each participant has been assigned a unique user ID for this hands-on session. 
 
 ```
-User:           AC230193UXX
-Password:       Obqm3RzUtG1!
+User:           AC254534UXX
+Password:       ObXUAzwYXV1!
 ```
 
 >where __XX__ is the two-digit number assigned to your workstation
@@ -22,8 +22,8 @@ Password:       Obqm3RzUtG1!
 >🔑 __Example__:
 If your workstation label or assigned number is 15, then your user ID will be:
 ```
-User:           AC230193U15
-Password:       Obqm3RzUtG1!
+User:           AC254534U15
+Password:       ObXUAzwYXV1!
 ```
 3. Once you have entered the credentials, click on continue.
 <br>![](/exercises/setup/images/2_sign_in.png)

@@ -22,7 +22,7 @@
 6. Enter the project details 
    - __Name__ : Risk_Management_U<##>
    - __Description__ : Risk Management Application & Services 
-   - __Dev Space__ : Select the dev space where you want the project to reside, the one you created in the [previous exercise](exercises/dev-space-config/) and choose __TechEdDA262_U<##>__
+   - __Dev Space__ : Select the dev space where you want the project to reside, the one you created in the [previous exercise](../dev-space-config/README.md) and choose __TechEdDA262_U<##>__
    > In U<##>, ## where ## represents the unique number assigned to you at the start of the exercise (for example, 01 or 39)
 
    >💡 __Insight Corner__:

@@ -21,10 +21,10 @@
 - What kind of application you want to create: 
     - Select __Full Stack Application Using Productivity Tools__
 - _Select_ 4 SAP HANA extensions
+  - __SAP HANA Calculation View Editor__
   - __SAP HANA Database explorer__ (added by default)
   - __SAP HANA tools__
   - __SAP HANA Performance tools__
-  - __SAP HANA Calculation View Editor__
 - _Apply by clicking __Create Dev Space__
 
 <br>![](/exercises/dev-space-config/images/4-create-dev-space.png)
