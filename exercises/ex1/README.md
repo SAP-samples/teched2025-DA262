@@ -1,5 +1,5 @@
 # Exercise 1 - Create a Full-Stack Project in SAP Build Code
-1. Navigate to the <a href="https://sap-build-eu10-trial-4-ykabxtjj.authentication.eu10.hana.ondemand.com/login" target="_blank">SAP Build Lobby</a>🚀.
+1. Navigate to the <a href="https://sap-build-eu10-trial-1-8l00vpnn.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀.
 
 2. In the Lobby's All Projects view, _click_ Create, and from the dropdown list select __Create__ to create a new project from scratch.
 <br>![](/exercises/ex1/images/1-create-from-lobby.png) 

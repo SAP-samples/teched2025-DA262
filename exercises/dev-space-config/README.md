@@ -2,7 +2,7 @@
 
 1. The starting point for this tutorial is the lobby of SAP Build, the central entry point for all SAP Build products.
 
-  - Launch the <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀
+  - Launch the <a href="https://sap-build-eu10-trial-1-8l00vpnn.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a>🚀
 
 <br>![](/exercises/dev-space-config/images/1-launch-sap-build.png)
 
@@ -34,7 +34,7 @@ Now you can go back to the SAP Build Code Lobby and create a Full-Stack Applicat
 
 <br>![](/exercises/dev-space-config/images/5-space-starting.png)
 
-6. Go back to your <a href="https://sap-build-eu10-trial-4-ykabxtjj.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a> to continue with the next exercise.
+6. Go back to your <a href="https://sap-build-eu10-trial-1-8l00vpnn.eu10.build.cloud.sap/lobby" target="_blank">SAP Build Lobby</a> to continue with the next exercise.
 
 ## Summary 📝
 
